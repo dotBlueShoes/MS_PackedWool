@@ -1,0 +1,26 @@
+// API - https://skmedix.github.io/ForgeJavaDocs/
+
+// 1. Blocks Material -  harvest lvl itd (look at serious_core).
+
+// 6. Thing about a shuffle. make packed wool long to harvest and drop simple wool. And when harvested with shears it drops packed.
+// change creative tab appearence (they're not in the same order as wool is).
+
+// 7. Make a config option to disable overriding shears.
+// 8. Make a config to disable new recipes and disable disabling vanilla recipes.
+// 9. Config option to make red_bed only craftable.
+// 10. Remove Ingots.
+// 11. Raname ItemBase or remove if not needed.
+// 12. Make Shears extensible (diffrent speeds for differet shear material).
+// 13. Remove data/minecraft/tags/blocks - it's a 1.13 thing.
+// 14. Remove EmptyRecipe class "best comment it inside CraftingHandler".
+// 15. Make PackedWool segregate in order similar to vanilla wool in CreativeTabs.
+// 16. Make it display name and version in multimc.
+// 17. Try making the textures slightly darker.
+// 18. Config option to replace "Red Bed" with "Legacy Bed"
+// 100. Make an a Shears 1.12.2 lib mod that acts as a system for all registered shears. 
+
+
+@github plan
+version: @mod, gradle.build, mcmod.info -> gitversion
+-> gitintegration with a structure that allows me to keep my notes and unused resources
+and with branches that allow me to switch between forge/mc versions of my mod.

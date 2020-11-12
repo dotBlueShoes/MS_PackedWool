@@ -1,0 +1,16 @@
+# ${mcversion} wyświetla "version z @Mod".
+
+[{
+  "modid": "packed_wool",
+  "name": "Packed Wool",
+  "description": "This mod adds new block which replaces wool in bed crafting recipes.",
+  "version": "0.1.1.0",
+  "mcversion": "1.12.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["dotBlueShoes"],
+  "credits": "Random guys that didn't even answered well.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}]

@@ -1,3 +1,12 @@
+
+# Environmental and licensed stuff.
+/.gradle/
+/.vscode/
+/build/
+/run/
+/src/test/
+
+
 # Compiled class file
 *.class
 
