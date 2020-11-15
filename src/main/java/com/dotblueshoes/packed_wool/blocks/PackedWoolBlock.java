@@ -1,5 +1,3 @@
-//https://forums.minecraftforge.net/topic/64469-have-a-modblock-break-faster-with-shears-like-wool/
-
 package com.dotblueshoes.packed_wool.blocks;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -25,7 +23,7 @@ import com.dotblueshoes.packed_wool.init.ModBlocks;
 import com.dotblueshoes.packed_wool.init.ModItems;
 import com.dotblueshoes.packed_wool.PackedWool;
 
-public class BlockBase extends Block implements IHasModel, IShearable {
+public class PackedWoolBlock extends Block implements IHasModel, IShearable {
 
     @Override
     public void registerModels() {
@@ -60,7 +58,7 @@ public class BlockBase extends Block implements IHasModel, IShearable {
         return ret;
     }
 
-    public BlockBase (String name, Material material) {
+    public PackedWoolBlock(String name, Material material) {
         super(material);
 
         setSoundType(SoundType.CLOTH);

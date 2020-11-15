@@ -1,6 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "packed_wool:items/tin_ingot"
-    }
-}

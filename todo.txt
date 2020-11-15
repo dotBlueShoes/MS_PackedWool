@@ -14,10 +14,22 @@
 // 13. Remove data/minecraft/tags/blocks - it's a 1.13 thing.
 // 14. Remove EmptyRecipe class "best comment it inside CraftingHandler".
 // 15. Make PackedWool segregate in order similar to vanilla wool in CreativeTabs.
-// 16. Make it display name and version in multimc.
 // 17. Try making the textures slightly darker.
 // 18. Config option to replace "Red Bed" with "Legacy Bed"
-// 100. Make an a Shears 1.12.2 lib mod that acts as a system for all registered shears. 
+// 19. Make an a Shears 1.12.2 lib mod that acts as a system for all registered 
+shears.
+// 20 github readme
+// 21 1.13 project
+// 22 gitversion
+
+@BUG
+// for some reason in MultiMc the version is 0.1.1.1 when it's 0.1.1.2
+https://github.com/MattCzyr/NaturesCompass/tree/NaturesCompass-1.12.2
+https://github.com/jellysquid3/phosphor-forge/tree/1.12.x/stable
+
+
+//https://forums.minecraftforge.net/topic/64469-have-a-modblock-break-faster-with-shears-like-wool/
+// github - do the same thing with serious_core. 
 
 
 @github plan

@@ -1,7 +1,3 @@
-// ITEMS
-item.copper_ingot.name=Copper Ingot
-item.tin_ingot.name=Tin Ingot
-
 // BLOCKS
 tile.packed_wool_light_blue.name=Light Blue Packed Wool
 tile.packed_wool_light_gray.name=Light Gray Packed Wool
