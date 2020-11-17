@@ -1,8 +1,8 @@
 package com.dotblueshoes.packed_wool.proxy;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraft.item.Item;
 
 public class ClientProxy extends CommonProxy {
 
@@ -13,7 +13,7 @@ public class ClientProxy extends CommonProxy {
             new ModelResourceLocation(
                 item.getRegistryName(), 
                 id
-                )
+            )
         );
     }
 

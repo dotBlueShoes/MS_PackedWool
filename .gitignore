@@ -3,6 +3,7 @@
 /.gradle/
 /.vscode/
 /build/
+/libs/
 /run/
 /src/test/
 

@@ -14,16 +14,24 @@ import org.apache.logging.log4j.Logger;
 import com.dotblueshoes.packed_wool.util.handlers.CraftingHandler;
 import com.dotblueshoes.packed_wool.proxy.CommonProxy;
 
-@Mod(modid = PackedWool.ID, name = PackedWool.NAME, version = "")
+import com.dotblueshoes.shears_lib.ShearsLib;
+//import baubles.common.Baubles;
+
+@Mod (
+    modid = "packed_wool",  
+    dependencies = "required-before:shears_lib@[0.0.1.0]", 
+    useMetadata = true
+)
+
 public class PackedWool {
 
-    public static final String NAME = "Packed Wool";
-	public static final String ID = "packed_wool";
-    
-    @Instance(ID) // Some other mod might want it. lmao.
+    // The only needed. I need to somehow parse the version from properties or gradle. or some json file.
+    //public static final String VERSION = "@VERSION@";
+
+    @Instance("packed_wool") // Some other mod might want it. lmao.
     public static PackedWool instance;
 
-    @SidedProxy ( // Proxy - Both client and server have a server.
+    @SidedProxy( // Proxy - Both client and server have a server.
         clientSide = "com.dotblueshoes.packed_wool.proxy.ClientProxy", 
         serverSide = "com.dotblueshoes.packed_wool.proxy.CommonProxy"
     ) public static CommonProxy proxy;
@@ -40,18 +48,9 @@ public class PackedWool {
         CraftingHandler.removeRecipes();
     }
 
-    @EventHandler
-    public static void postInit(FMLPostInitializationEvent event) {
-        
-    }
-
+    // I could make it as a class and exclude it at compile with gradle i think.
     //public static void MsgDebug(String msg) {
     //    logger.info(msg);
-    //}
-    
-    //@EventHandler /* Sereane Sesons command framework */
-    //public void serverStarting(FMLServerStartingEvent event){
-    //    event.registerServerCommand(new Command());
     //}
 
 }
