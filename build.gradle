@@ -13,23 +13,25 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 
-// Reads the properties from build.properties file.
-ext.configFile = file "build.properties"
+
+// Reads the variables from build.properties file in.
+ext.configFile = file("build.properties")
 configFile.withReader {
-    def properties = new Properties()
-    properties.load(it)
-    project.ext.config = new ConfigSlurper().parse properties
+    Properties properties = new Properties()
+    properties.load(new FileInputStream(ext.configFile))
+    project.ext.config = new ConfigSlurper().parse(properties)
 }
 
-version = "${config.minecraft_version}-${config.mod_version}"
+// Setting up the variables needed to build.
+version = config.minecraft_version + "-" + getVersion()
+
 group = "io.github.dotblueshoes.packed_wool"
 archivesBaseName = "packed_wool"
 
 sourceCompatibility = targetCompatibility = '1.8'
-compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
-}
+compileJava { sourceCompatibility = targetCompatibility = '1.8' }
 
+// Setting up Minecraft run.
 minecraft {
     mappings channel: 'snapshot', version: '20171003-1.12'
     
@@ -51,16 +53,18 @@ minecraft {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854'
     compile files('libs/shears_lib-1.12.2-0.0.1.0.jar'/*, 'libs/Baubles-1.12-1.5.2.jar'*/)
+    // compile "net.silentchaos512:silent-lib:3.0+"
 }
 
 // This is required for mcmod.info to be loaded in first place and then reloaded with each build.
 // Its only unneeded in eclipse for some reason.
 sourceSets { main { output.resourcesDir = output.classesDir } }
 
+// Proccesses mcmod.info file variables.
 processResources {
     // This will ensure that it will change on build.
-    inputs.property 'mcversion', project.config.minecraft_version
-    inputs.property 'version', project.config.mod_version
+    inputs.property 'mcversion', config.minecraft_version
+    inputs.property 'version', version
     inputs.property 'modid', project.archivesBaseName
 
     // This replaces mcmod.info variables.
@@ -68,8 +72,8 @@ processResources {
         include '**/mcmod.info'
 
         expand ([
-            'minecraft_version': project.config.minecraft_version,
-            'mod_version': project.config.mod_version,
+            'minecraft_version': config.minecraft_version,
+            'mod_version': version,
             'modid': project.archivesBaseName
         ])
     }
@@ -86,16 +90,87 @@ processResources {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "packed_wool",
-            "Specification-Vendor": "dotblueshoes",
-            "Specification-Version": "1",
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
             "Implementation-Vendor" :"dotbluesohes",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            "Specification-Vendor": "dotblueshoes",
+            "Implementation-Version": "${version}",
+            "Implementation-Title": project.name,
+            "Specification-Title": "packed_wool",
+            "Specification-Version": "1"
         ])
     }
 }
+
+String getVersion() {
+    try {
+        return getGitVersion()
+    } catch (Exception exception) {
+        System.out.println("Setting the version via Git failed!")
+        // need somekind of incrementation here too!!
+        return "error-version"
+    }
+}
+
+// Calling git command to acquire major, minor, revision number from tag.
+String getGitVersion() {
+
+    def outStream = new ByteArrayOutputStream()
+    def result = exec {
+        executable = 'C:\\Program Files\\Git\\bin\\git' // set it as env variable
+        args = [ 'describe', '--tags' ]
+        standardOutput = outStream
+    }
+
+    def fullVersion = outStream.toString().trim()
+    def matcher = fullVersion =~ /(\d+).(\d+).(\d+)-(.*)/
+
+    def mj = matcher[0][1]
+    def mn = matcher[0][2]
+    def rv = matcher[0][3]
+    def bd = getBuildNumber()
+
+    return "${mj}.${mn}.${rv}.${bd}".toString()
+}
+
+// Acquiring Build Number
+String getBuildNumber() {
+    def versionsFile = file('version.properties')
+
+    if( versionsFile.canRead() ) {
+        Properties versionProperties = new Properties()
+        versionProperties.load(new FileInputStream(versionsFile))
+
+        return versionProperties['bd_number'].toString();
+    }
+
+    return "error_version"
+}
+
+// Increasing Build Number
+task incrementBuildNumber
+
+// The doFirst prob. iserts this action at the front of the task's action list.
+incrementBuildNumber.doFirst {
+    def versionsFile = file('version.properties')
+
+    if ( versionsFile.canRead() ) {
+        Properties versionProperties = new Properties()
+        versionProperties.load(new FileInputStream(versionsFile))
+
+        int newNumber = versionProperties['bd_number'].toInteger() + 1
+        versionProperties['bd_number'] = newNumber.toString()
+
+        println("BuildNumber has incremented to: " + newNumber)
+        versionProperties.store(versionsFile.newWriter(), null)
+    } else 
+        println("Could not find 'build.properties' file! Ignoring increment.")
+    
+}
+
+// This should mean that it's gonna only increment on the successful builds.
+build.finalizedBy incrementBuildNumber
+
+
 
 /* Publishing */
 // Example configuration to allow publishing using the maven-publish task //
