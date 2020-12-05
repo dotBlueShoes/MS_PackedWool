@@ -1,46 +1,44 @@
 // API - https://skmedix.github.io/ForgeJavaDocs/
 // Git on Windows - https://appuals.com/fix-git-is-not-recognized-as-an-internal-or-external-command/
 
-// 7. Make a config option to disable overriding shears.
-// 8. Make a config to disable new recipes and disable disabling vanilla recipes.
+# I still wonder about git revision number
+# i know i can read the number of commits since last tag creation.
+# so i could shorten the tag number to 2 decimals
+# but what ensures me then that i am working on the actual commit or not...
+
+// github - do the same thing with serious_core. 
+
+
 // 9. Config option to make red_bed only craftable.
 // 13. Remove data/minecraft/tags/blocks - it's a 1.13 thing.
 // 14. Remove EmptyRecipe class "best comment it inside CraftingHandler".
 // 15. Make PackedWool segregate in order similar to vanilla wool in CreativeTabs.
 // 17. Try making the textures slightly darker.
-// 18. Config option to replace "Red Bed" with "Legacy Bed"
 // 20. github readme
+
 // 21. 1.13 project
-// 23. @version@
+
 // 24. Try to implement ShearsLib into PackedWool git repository.
-// 26
+// https://github.com/BuildCraft/BuildCraft/tree/8.0.x-1.12.2/common/buildcraft
+
+// 27
 
 @Library ShearsLib
 // 1. Blocks Material -  harvest lvl itd (look at serious_core).
 // 6. Thing about a shuffle. make packed wool long to harvest and drop simple wool. And when harvested with shears it drops packed.
 // change creative tab appearence (they're not in the same order as wool is).
 // 12. Make Shears extensible (diffrent speeds for differet shear material).
-// 19. Make an a Shears 1.12.2 lib mod that acts as a system for all registered 
-shears.
-
-@GitVersion Control
-// 22. gitversion
-https://github.com/SilentChaos512/Silent-Gear/blob/1.12/build.gradle
-
-
-
+// 19. Make an a Shears 1.12.2 lib mod that acts as a system for all registered shears.
 //https://forums.minecraftforge.net/topic/64469-have-a-modblock-break-faster-with-shears-like-wool/
-// github - do the same thing with serious_core. 
 
+@Config
+// 7. Make a config option to disable overriding shears.
+// 8. Make a config to disable new recipes and disable disabling vanilla recipes.
+// 18. Config option to replace "Red Bed" with "Legacy Bed"
+// 26. config option to make hoes harvest wool/packed with the speed of 0.5 of sheer equivalent.
 
 @github plan
-version: @mod, gradle.build, mcmod.info -> gitversion
--> gitintegration with a structure that allows me to keep my notes and unused resources
-and with branches that allow me to switch between forge/mc versions of my mod.
-
-
-
-
+-> branches that allow me to switch between forge/mc versions of my mod.
 
 
 @Search Continues...

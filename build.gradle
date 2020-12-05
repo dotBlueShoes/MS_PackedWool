@@ -1,86 +1,84 @@
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
-        mavenCentral()
+        maven { url = 'https://files.minecraftforge.net/maven' };
+        jcenter();
+        mavenCentral();
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+';
     }
 }
         
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'maven-publish'
-apply plugin: 'eclipse'
+apply plugin: 'net.minecraftforge.gradle';
+apply plugin: 'maven-publish';
+apply plugin: 'eclipse';
 
 
 // Reads the variables from build.properties file in.
-ext.configFile = file("build.properties")
+ext.configFile = file("build.properties");
 configFile.withReader {
-    Properties properties = new Properties()
-    properties.load(new FileInputStream(ext.configFile))
-    project.ext.config = new ConfigSlurper().parse(properties)
+    Properties properties = new Properties();
+    properties.load(new FileInputStream(ext.configFile));
+    project.ext.config = new ConfigSlurper().parse(properties);
 }
 
 // Setting up the variables needed to build.
-version = config.minecraft_version + "-" + getVersion()
+version = config.minecraft_version + "-" + getVersion();
+group = "io.github.dotblueshoes.packed_wool";
+archivesBaseName = "packed_wool";
 
-group = "io.github.dotblueshoes.packed_wool"
-archivesBaseName = "packed_wool"
-
-sourceCompatibility = targetCompatibility = '1.8'
-compileJava { sourceCompatibility = targetCompatibility = '1.8' }
+sourceCompatibility = targetCompatibility = '1.8';
+compileJava { sourceCompatibility = targetCompatibility = '1.8'; }
 
 // Setting up Minecraft run.
 minecraft {
-    mappings channel: 'snapshot', version: '20171003-1.12'
+    mappings channel: 'snapshot', version: '20171003-1.12';
     
     runs {
         client {
-            workingDirectory project.file('run')
+            workingDirectory project.file('run');
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP';
+            property 'forge.logging.console.level', 'debug';
         }
 
         server {
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP';
+            property 'forge.logging.console.level', 'debug';
         }
     }
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854'
-    compile files('libs/shears_lib-1.12.2-0.0.1.0.jar'/*, 'libs/Baubles-1.12-1.5.2.jar'*/)
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854';
+    compile files('libs/shears_lib-1.12.2-0.0.1.0.jar'/*, 'libs/Baubles-1.12-1.5.2.jar'*/);
     // compile "net.silentchaos512:silent-lib:3.0+"
 }
 
 // This is required for mcmod.info to be loaded in first place and then reloaded with each build.
-// Its only unneeded in eclipse for some reason.
-sourceSets { main { output.resourcesDir = output.classesDir } }
+sourceSets { main { output.resourcesDir = output.classesDir; } }
 
 // Proccesses mcmod.info file variables.
 processResources {
     // This will ensure that it will change on build.
-    inputs.property 'mcversion', config.minecraft_version
-    inputs.property 'version', version
-    inputs.property 'modid', project.archivesBaseName
+    inputs.property 'mcversion', config.minecraft_version;
+    inputs.property 'version', version;
+    inputs.property 'modid', project.archivesBaseName;
 
     // This replaces mcmod.info variables.
     from(sourceSets.main.resources.srcDirs) {
-        include '**/mcmod.info'
+        include '**/mcmod.info';
 
         expand ([
             'minecraft_version': config.minecraft_version,
             'mod_version': version,
             'modid': project.archivesBaseName
-        ])
+        ]);
     }
 
     // Means copy everything else except the mcmod.info file.
     from(sourceSets.main.resources.srcDirs) {
-        exclude '**/mcmod.info'
+        exclude '**/mcmod.info';
     }
 
 }
@@ -97,17 +95,18 @@ jar {
             "Implementation-Title": project.name,
             "Specification-Title": "packed_wool",
             "Specification-Version": "1"
-        ])
+        ]);
     }
 }
 
+// Acquires the version via newest git 'tag'/'release' if it fails it gets an "err-ver" + build_number.
 String getVersion() {
     try {
-        return getGitVersion()
+        return getGitVersion();
     } catch (Exception exception) {
         // Apperanlty i get 3 exceptions therefore this gets evaluated 3 times.
-        println("Exception: Setting the version via Git failed!")
-        return "error_version-b" + getBuildNumber()
+        println("Exception: Setting the version via Git failed!");
+        return "error_version-b" + getBuildNumber();
     } 
 }
 
@@ -116,77 +115,56 @@ String getGitVersion() {
 
     def outStream = new ByteArrayOutputStream()
     def result = exec {
-        executable = 'git'
-        args = [ 'describe', '--tags', '--long' ]
-        standardOutput = outStream
+        executable = 'git';
+        args = [ 'describe', '--tags', '--long' ];
+        standardOutput = outStream;
     }
 
-    def fullVersion = outStream.toString().trim()
-    def matcher = fullVersion =~ /(\d+).(\d+).(\d+)-(.*)/
+    def fullVersion = outStream.toString().trim();
+    def matcher = fullVersion =~ /(\d+).(\d+).(\d+)-(.*)/;
 
-    def mj = matcher[0][1]
-    def mn = matcher[0][2]
-    def rv = matcher[0][3]
-    def bd = getBuildNumber()
+    def mj = matcher[0][1];
+    def mn = matcher[0][2];
+    def rv = matcher[0][3];
+    def bd = getBuildNumber();
 
-    return "${mj}.${mn}.${rv}.${bd}".toString()
+    return "${mj}.${mn}.${rv}.${bd}".toString();
 }
 
 // Acquiring Build Number
 String getBuildNumber() {
-    def versionsFile = file('version.properties')
+    def versionsFile = file('version.properties');
 
     if( versionsFile.canRead() ) {
-        Properties versionProperties = new Properties()
-        versionProperties.load(new FileInputStream(versionsFile))
+        Properties versionProperties = new Properties();
+        versionProperties.load(new FileInputStream(versionsFile));
 
         return versionProperties['bd_number'].toString();
     }
 
-    return "error_version"
+    return "error_build_number";
 }
 
 // Increasing Build Number
-task incrementBuildNumber
+task incrementBuildNumber;
 
 // The doFirst prob. iserts this action at the front of the task's action list.
 incrementBuildNumber.doFirst {
-    def versionsFile = file('version.properties')
+    def versionsFile = file('version.properties');
 
     if ( versionsFile.canRead() ) {
-        Properties versionProperties = new Properties()
-        versionProperties.load(new FileInputStream(versionsFile))
+        Properties versionProperties = new Properties();
+        versionProperties.load(new FileInputStream(versionsFile));
 
-        int newNumber = versionProperties['bd_number'].toInteger() + 1
-        versionProperties['bd_number'] = newNumber.toString()
+        int newNumber = versionProperties['bd_number'].toInteger() + 1;
+        versionProperties['bd_number'] = newNumber.toString();
 
-        println("BuildNumber has incremented to: " + newNumber)
-        versionProperties.store(versionsFile.newWriter(), null)
+        println("BuildNumber has incremented to: " + newNumber);
+        versionProperties.store(versionsFile.newWriter(), null);
     } else 
-        println("Could not find 'build.properties' file! Ignoring increment.")
+        println("Could not find 'build.properties' file! Ignoring increment.");
     
 }
 
 // This should mean that it's gonna only increment on the successful builds.
-build.finalizedBy incrementBuildNumber
-
-
-
-/* Publishing */
-// Example configuration to allow publishing using the maven-publish task //
-// This is the preferred method to reobfuscate your jar file
-//jar.finalizedBy('reobfJar') 
-// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
-//publish.dependsOn('reobfJar')
-//publishing {
-//    publications {
-//        mavenJava(MavenPublication) {
-//            artifact jar
-//        }
-//    }
-//    repositories {
-//        maven {
-//            url "file:///${project.projectDir}/mcmodsrepo"
-//        }
-//    }
-//}
+build.finalizedBy incrementBuildNumber;
