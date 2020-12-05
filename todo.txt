@@ -1,4 +1,5 @@
 // API - https://skmedix.github.io/ForgeJavaDocs/
+// Git on Windows - https://appuals.com/fix-git-is-not-recognized-as-an-internal-or-external-command/
 
 // 7. Make a config option to disable overriding shears.
 // 8. Make a config to disable new recipes and disable disabling vanilla recipes.
@@ -12,6 +13,7 @@
 // 21. 1.13 project
 // 23. @version@
 // 24. Try to implement ShearsLib into PackedWool git repository.
+// 26
 
 @Library ShearsLib
 // 1. Blocks Material -  harvest lvl itd (look at serious_core).

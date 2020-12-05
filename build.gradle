@@ -105,10 +105,10 @@ String getVersion() {
     try {
         return getGitVersion()
     } catch (Exception exception) {
-        System.out.println("Setting the version via Git failed!")
-        // need somekind of incrementation here too!!
-        return "error-version"
-    }
+        // Apperanlty i get 3 exceptions therefore this gets evaluated 3 times.
+        println("Exception: Setting the version via Git failed!")
+        return "error_version-b" + getBuildNumber()
+    } 
 }
 
 // Calling git command to acquire major, minor, revision number from tag.
@@ -116,8 +116,8 @@ String getGitVersion() {
 
     def outStream = new ByteArrayOutputStream()
     def result = exec {
-        executable = 'C:\\Program Files\\Git\\bin\\git' // set it as env variable
-        args = [ 'describe', '--tags' ]
+        executable = 'git'
+        args = [ 'describe', '--tags', '--long' ]
         standardOutput = outStream
     }
 
