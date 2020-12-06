@@ -1,7 +1,7 @@
 {
     "variants": {
-        "normal": {
-            "model": "packed_wool:packed_wool_blue"
+        "": {
+            "model": "packed_wool:block/packed_wool_blue"
         }
     }
 }

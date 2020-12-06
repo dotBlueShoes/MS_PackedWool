@@ -1,0 +1,52 @@
+# ModLoader things.
+modLoader = "javafml"                                   #mandatory
+loaderVersion = "[25,)"                                 #mandatory (24 is current forge version)
+[[mods]]                                                #mandatory
+
+# URL whereto refer people when prob. occurs with this mod.
+issueTrackerURL = "http://my.issue.tracker/"
+
+modId = "packed_wool"                                   #mandatory
+version = "${file.jarVersion}"                          #mandatory
+displayName = "Packed Wool"                             #mandatory
+
+# A URL to query for updates for this mod. See the JSON update specification <here>
+#updateJSONURL="http://myurl.me/"                       
+
+# A URL for the "homepage" for this mod, displayed in the mod UI
+displayURL = "http://example.com/"                        
+
+# A file name (in the root of the mod JAR) containing a logo for display
+# logoFile="packed_wool.png" 
+
+# A text field displayed in the mod UI
+credits = "To all the people having their source code availible on github. Forge forums fu."      
+
+# A text field displayed in the mod UI
+authors = "dotBlueShoes"                                  
+
+# The description text for the mod (multi line!)        #mandatory
+description = '''
+This mod adds new block which replaces wool in bed crafting recipes.
+'''
+
+# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+[[dependencies.packed_wool]]
+    # the modid of the dependency
+    modId = "forge"                                     #mandatory
+    # Does this dependency have to exist - if not, ordering below must be specified
+    mandatory = true                                    #mandatory
+    # The version range of the dependency
+    versionRange = "[25,)"                              #mandatory
+    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    ordering = "NONE"
+    # Side this dependency is applied on - BOTH, CLIENT or SERVER
+    side = "BOTH"
+
+# Here's another dependency
+[[dependencies.packed_wool]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.13.2]"
+    ordering = "NONE"
+    side = "BOTH"

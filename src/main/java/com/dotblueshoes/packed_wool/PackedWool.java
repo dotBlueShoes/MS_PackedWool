@@ -1,56 +1,110 @@
 package com.dotblueshoes.packed_wool;
 
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.dotblueshoes.packed_wool.util.handlers.CraftingHandler;
-import com.dotblueshoes.packed_wool.proxy.CommonProxy;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModContainer;
+import net.minecraftforge.fml.ModList;
 
-import com.dotblueshoes.shears_lib.ShearsLib;
-//import baubles.common.Baubles;
+import java.util.Optional;
 
-@Mod (
-    modid = "packed_wool",  
-    dependencies = "required-before:shears_lib@[0.0.1.0]", 
-    useMetadata = true
-)
+import com.dotblueshoes.packed_wool.init.ModBlocks;
 
+@Mod("packed_wool")
 public class PackedWool {
 
-    // The only needed. I need to somehow parse the version from properties or gradle. or some json file.
-    //public static final String VERSION = "@VERSION@";
+    public static final Logger LOGGER = LogManager.getLogger();
+    public static SideProxy PROXY;
 
-    @Instance("packed_wool") // Some other mod might want it. lmao.
-    public static PackedWool instance;
+    public static final ItemGroup ITEM_GROUP = new ItemGroup("packed_wool") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(ModBlocks.PACKED_WOOL_WHITE);
+        }
+    };
 
-    @SidedProxy( // Proxy - Both client and server have a server.
-        clientSide = "com.dotblueshoes.packed_wool.proxy.ClientProxy", 
-        serverSide = "com.dotblueshoes.packed_wool.proxy.CommonProxy"
-    ) public static CommonProxy proxy;
+    // ResourceLocation(mod_id, string_path);
 
-    private static Logger logger;
-
-    @EventHandler
-    public static void preInit(FMLPreInitializationEvent event) {
-        logger = event.getModLog();
+    public PackedWool() {
+        PROXY = DistExecutor.runForDist(
+            () -> () -> new SideProxy.Client(),
+            () -> () -> new SideProxy.Server()
+        );
+        
+        // Register the setup method for modloading
+        //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        // Register the enqueueIMC method for modloading
+        //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
+        // Register the processIMC method for modloading
+        //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+        // Register the doClientStuff method for modloading
+        //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        // Register ourselves for server and other game events we are interested in
+        //MinecraftForge.EVENT_BUS.register(this);
     }
 
-    @EventHandler
-    public static void init(FMLInitializationEvent event) {
-        CraftingHandler.removeRecipes();
+    public static String getVersion() { // calling modlist
+        Optional<? extends ModContainer> o = ModList.get().getModContainerById("packed_wool");
+        if (o.isPresent()) {
+            return o.get().getModInfo().getVersion().toString();
+        }
+        return "ERR_VERSION";
     }
 
-    // I could make it as a class and exclude it at compile with gradle i think.
-    //public static void MsgDebug(String msg) {
-    //    logger.info(msg);
+    //private void setup(final FMLCommonSetupEvent event) {
+    //    // Some preinit code
+    //    LOGGER.info("HELLO FROM PREINIT");
+    //    LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     //}
 
+    //private void doClientStuff(final FMLClientSetupEvent event) {
+    //    // Do something that can only be done on the client
+    //    LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+    //}
+
+    //private void enqueueIMC(final InterModEnqueueEvent event) {
+    //    // Some example code to dispatch IMC to another mod
+    //    InterModComms.sendTo("examplemod", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
+    //}
+
+    //private void processIMC(final InterModProcessEvent event) {
+    //    // Some example code to receive and process InterModComms from other mods
+    //    LOGGER.info("Got IMC {}", event.getIMCStream().
+    //            map(m->m.getMessageSupplier().get()).
+    //            collect(Collectors.toList()));
+    //}
+
+    // You can use SubscribeEvent and let the Event Bus discover methods to call
+    //@SubscribeEvent // HERE!
+    //public void onServerStarting(FMLServerStartingEvent event) {
+    //    // Do something when the server starts
+    //    LOGGER.info("HELLO from server starting");
+    //}
+
+    // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
+    // Event bus for receiving Registry Events)
+    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class RegistryEvents {
+        @SubscribeEvent
+        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
+            // Register a new block here
+            LOGGER.info("HELLO from Register Block");
+        }
+    }
 }
