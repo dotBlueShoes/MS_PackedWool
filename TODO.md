@@ -5,6 +5,7 @@
 - [ ] Remove EmptyRecipe class "comment it inside CraftingHandler".
 - [ ] Try making the textures slightly darker.
 - [ ] Work on github README.
+- [ ] [Jitpack publishing](https://jitpack.io/)
 ### ShearsLib
 - [ ] Implement blocks material - harvest lvl etc (look at serious_core project).
 - [ ] Think about making packed wool long to harvest and drop wool instead. And when harvested with shears it would drop packed wool.
@@ -17,6 +18,7 @@
 - [ ] Config to disable overriding minecraft basic shears.
 - [ ] Config to disable new bed recipes.
 - [ ] Config option to make hoes harvest wool/packed wool with the speed of 0.5f of shear equivalent.
+- [ ] Config to disable beds spawning in minecraft villages.
 
 ### Links that i am looking into :smiley:
 [API](https://skmedix.github.io/ForgeJavaDocs/)
