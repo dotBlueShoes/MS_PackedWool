@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "runClient",
+      "request": "launch",
+      "mainClass": "net.minecraftforge.userdev.LaunchTesting",
+      "projectName": "1.13.2",
+      "cwd": "${workspaceFolder}\\run",
+      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.logging.markers\u003dSCAN,REGISTRIES,REGISTRYDUMP -XX:HeapDumpPath\u003dMojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump",
+      "args": "",
+      "env": {
+        "MOD_CLASSES": "examplemod%%${workspaceFolder}\\bin\\main;examplemod%%${workspaceFolder}\\bin\\main",
+        "MCP_MAPPINGS": "snapshot_20180921-1.13",
+        "MCP_VERSION": "20190213.203750",
+        "FORGE_VERSION": "25.0.219",
+        "assetIndex": "1.13.1",
+        "assetDirectory": "C:\\Users\\Admin\\.gradle\\caches\\forge_gradle\\assets",
+        "nativesDirectory": "${workspaceFolder}\\build\\natives",
+        "FORGE_GROUP": "net.minecraftforge",
+        "target": "fmluserdevclient",
+        "MC_VERSION": "1.13.2"
+      }
+    },
+    {
+      "type": "java",
+      "name": "runServer",
+      "request": "launch",
+      "mainClass": "net.minecraftforge.userdev.LaunchTesting",
+      "projectName": "1.13.2",
+      "cwd": "${workspaceFolder}\\run",
+      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.logging.markers\u003dSCAN,REGISTRIES,REGISTRYDUMP",
+      "args": "",
+      "env": {
+        "MOD_CLASSES": "examplemod%%${workspaceFolder}\\bin\\main;examplemod%%${workspaceFolder}\\bin\\main",
+        "MCP_MAPPINGS": "snapshot_20180921-1.13",
+        "MCP_VERSION": "20190213.203750",
+        "FORGE_VERSION": "25.0.219",
+        "FORGE_GROUP": "net.minecraftforge",
+        "target": "fmluserdevserver",
+        "MC_VERSION": "1.13.2"
+      }
+    }
+  ]
+}
