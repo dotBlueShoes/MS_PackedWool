@@ -1,7 +1,6 @@
 
 # Environmental and licensed stuff.
 /.gradle/
-/.vscode/
 /build/
 /libs/
 /run/
