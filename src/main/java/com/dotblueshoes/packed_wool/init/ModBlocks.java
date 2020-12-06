@@ -15,7 +15,7 @@ public class ModBlocks {
     public static final Block PACKED_WOOL_LIGHT_GRAY = 
         new PackedWoolBlock("packed_wool_light_gray", Material.CLOTH);
     public static final Block PACKED_WOOL_MAGNETA = 
-        new PackedWoolBlock("packed_wool_magneta", Material.CLOTH);
+        new PackedWoolBlock("packed_wool_magenta", Material.CLOTH);
     public static final Block PACKED_WOOL_ORANGE = 
         new PackedWoolBlock("packed_wool_orange", Material.CLOTH);
     public static final Block PACKED_WOOL_PURPLE = 
