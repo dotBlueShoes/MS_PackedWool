@@ -1,6 +1,7 @@
 package com.dotblueshoes.packed_wool.init;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemStack;
 import net.minecraft.block.Block;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ public class ModBlocks {
         new PackedWoolBlock("packed_wool_light_blue", Material.CLOTH);
     public static final Block PACKED_WOOL_LIGHT_GRAY = 
         new PackedWoolBlock("packed_wool_light_gray", Material.CLOTH);
-    public static final Block PACKED_WOOL_MAGNETA = 
+    public static final Block PACKED_WOOL_MAGENTA = 
         new PackedWoolBlock("packed_wool_magenta", Material.CLOTH);
     public static final Block PACKED_WOOL_ORANGE = 
         new PackedWoolBlock("packed_wool_orange", Material.CLOTH);

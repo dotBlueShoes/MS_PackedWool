@@ -1,11 +1,11 @@
 package com.dotblueshoes.packed_wool.util.recipes;
 
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.ItemStack;
-import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.world.World;
 //import net.minecraftforge.fml.common.registry.*;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class EmptyRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
     private final ItemStack output;

@@ -7,6 +7,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.common.IShearable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;

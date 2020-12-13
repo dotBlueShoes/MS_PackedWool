@@ -15,10 +15,14 @@ import com.dotblueshoes.packed_wool.util.handlers.CraftingHandler;
 import com.dotblueshoes.packed_wool.proxy.CommonProxy;
 
 import com.dotblueshoes.shears_lib.ShearsLib;
-//import baubles.common.Baubles;
+//import baubles.common.Baubles; - thing like that gonna end up in serious_core remove it if its added.
+
+// Forge OreDict things i hate.
+import com.dotblueshoes.packed_wool.util.handlers.RegistryHandler;
 
 @Mod (
-    modid = "packed_wool",  
+    modid = "packed_wool",
+    //version = "error_version",
     dependencies = "required-before:shears_lib@[0.0.1.0]", 
     useMetadata = true
 )
@@ -45,11 +49,12 @@ public class PackedWool {
 
     @EventHandler
     public static void init(FMLInitializationEvent event) {
+        RegistryHandler.registerForgeOredict();
         CraftingHandler.removeRecipes();
     }
 
     // I could make it as a class and exclude it at compile with gradle i think.
-    //public static void MsgDebug(String msg) {
+    //public static void msgDebug(String msg) {
     //    logger.info(msg);
     //}
 

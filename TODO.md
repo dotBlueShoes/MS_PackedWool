@@ -1,11 +1,13 @@
 ## MS_PackedWool 1.12.2 Dev ToDo List
 ### Main
 - [ ] Change creative tab apperance (they're not in the same order as wool is).
-- [ ] Remove data catalog (1.13.2 thing).
 - [ ] Remove EmptyRecipe class "comment it inside CraftingHandler".
 - [ ] Try making the textures slightly darker.
-- [ ] Work on github README.
 - [ ] [Jitpack publishing](https://jitpack.io/)
+- [ ] Change revision and build order.
+- [ ] The @Mod "version" warning. Maybe i should store the full version information acording to the warning.
+- [ ] I should change build.properties with version.properties.
+- [ ] Check and if apply burning mechanic.
 ### ShearsLib
 - [ ] Implement blocks material - harvest lvl etc (look at serious_core project).
 - [ ] Think about making packed wool long to harvest and drop wool instead. And when harvested with shears it would drop packed wool.
@@ -21,7 +23,9 @@
 - [ ] Config to disable beds spawning in minecraft villages.
 
 ### Links that i am looking into :smiley:
-[API](https://skmedix.github.io/ForgeJavaDocs/)
+[OLD_API](https://skmedix.github.io/ForgeJavaDocs/)
+[API](https://forge.yue.moe)
+[Config_something](https://mcforge.readthedocs.io/en/1.12.x/config/annotations/)
 *https://github.com/bernie-g/geckolib/blob/1.12/build.gradle*
 *https://github.com/bernie-g/geckolib/blob/1.12/gradle.properties*
 *https://geckolib.com/en/latest/2.0.0/*

@@ -4,23 +4,23 @@ import java.util.ArrayList;
 
 import com.google.common.collect.Lists;
 
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 
 import com.dotblueshoes.packed_wool.util.recipes.EmptyRecipe;
 
 public class CraftingHandler {
-        public static void RegisterRecipes() {}
+        //public static void RegisterRecipes() {}
 
         public static void removeRecipes() {
-        ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>)ForgeRegistries.RECIPES;
-	       ArrayList<IRecipe> recipes = Lists.newArrayList(recipeRegistry.getValues());
+
+                ForgeRegistry<IRecipe> recipeRegistry = 
+                        (ForgeRegistry<IRecipe>)ForgeRegistries.RECIPES;
+
+	        ArrayList<IRecipe> recipes = 
+                        Lists.newArrayList(recipeRegistry.getValuesCollection());
 	        
                 recipeRegistry.remove(new ResourceLocation("minecraft", "light_gray_bed"));
                 recipeRegistry.remove(new ResourceLocation("minecraft", "light_blue_bed"));
@@ -38,15 +38,20 @@ public class CraftingHandler {
                 recipeRegistry.remove(new ResourceLocation("minecraft", "pink_bed"));
                 recipeRegistry.remove(new ResourceLocation("minecraft", "lime_bed"));
                 recipeRegistry.remove(new ResourceLocation("minecraft", "red_bed"));
-        
-	        //for (IRecipe r : recipes) {
-                //    ItemStack output = r.getRecipeOutput();
-                //    // wood log recipe?
-                //    if (output.getItem() == Item.getItemFromBlock(Blocks.PLANKS)) {
-                //        recipeRegistry.remove(r.getRegistryName());
-                //        
-                //        //recipeRegistry.register(EmptyRecipe.from(r));
-                //    }
-	        //}
+
 	}
 }
+
+// This is an example of something i don't remember .. let it stay here for a while.
+//import net.minecraft.init.Blocks;
+//import net.minecraft.item.Item;
+//import net.minecraft.item.ItemStack;
+//for (IRecipe r : recipes) {
+//    ItemStack output = r.getRecipeOutput();
+//    // wood log recipe?
+//    if (output.getItem() == Item.getItemFromBlock(Blocks.PLANKS)) {
+//        recipeRegistry.remove(r.getRegistryName());
+//        
+//        //recipeRegistry.register(EmptyRecipe.from(r));
+//    }
+//}
