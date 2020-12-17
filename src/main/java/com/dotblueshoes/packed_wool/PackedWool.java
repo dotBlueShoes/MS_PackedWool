@@ -22,15 +22,12 @@ import com.dotblueshoes.packed_wool.util.handlers.RegistryHandler;
 
 @Mod (
     modid = "packed_wool",
-    //version = "error_version",
+    version = "0",//"&MOD_VERSION&", // I get a warning or something so have your version.
     dependencies = "required-before:shears_lib@[0.0.1.0]", 
     useMetadata = true
 )
 
 public class PackedWool {
-
-    // The only needed. I need to somehow parse the version from properties or gradle. or some json file.
-    //public static final String VERSION = "@VERSION@";
 
     @Instance("packed_wool") // Some other mod might want it. lmao.
     public static PackedWool instance;

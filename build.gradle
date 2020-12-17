@@ -14,8 +14,8 @@ apply plugin: 'maven-publish';
 apply plugin: 'eclipse';
 
 
-// Reads the variables from build.properties file in.
-ext.configFile = file("build.properties");
+// Reads the variables from version.properties file in.
+ext.configFile = file("version.properties");
 configFile.withReader {
     Properties properties = new Properties();
     properties.load(new FileInputStream(ext.configFile));
@@ -47,6 +47,9 @@ minecraft {
             property 'forge.logging.console.level', 'debug';
         }
     }
+
+    //replace '&MOD_VERSION&', version;
+    //replaceIn 'PackedWool.java';
 }
 
 dependencies {
@@ -123,6 +126,7 @@ String getGitVersion() {
     def fullVersion = outStream.toString().trim();
     def matcher = fullVersion =~ /(\d+).(\d+).(\d+)-(.*)/;
 
+    // i know. but maybe i will use it somehow somewhere.
     def mj = matcher[0][1];
     def mn = matcher[0][2];
     def rv = matcher[0][3];
@@ -133,7 +137,7 @@ String getGitVersion() {
 
 // Acquiring Build Number
 String getBuildNumber() {
-    def versionsFile = file('version.properties');
+    def versionsFile = file('build.properties');
 
     if( versionsFile.canRead() ) {
         Properties versionProperties = new Properties();
@@ -145,22 +149,22 @@ String getBuildNumber() {
     return "error_build_number";
 }
 
-// Increasing Build Number
+// Declaration of the Increasing Build Number task.
 task incrementBuildNumber;
 
 // The doFirst prob. iserts this action at the front of the task's action list.
 incrementBuildNumber.doFirst {
-    def versionsFile = file('version.properties');
+    def versionBuildFile = file('build.properties');
 
-    if ( versionsFile.canRead() ) {
+    if ( versionBuildFile.canRead() ) {
         Properties versionProperties = new Properties();
-        versionProperties.load(new FileInputStream(versionsFile));
+        versionProperties.load(new FileInputStream(versionBuildFile));
 
         int newNumber = versionProperties['bd_number'].toInteger() + 1;
         versionProperties['bd_number'] = newNumber.toString();
 
         println("BuildNumber has incremented to: " + newNumber);
-        versionProperties.store(versionsFile.newWriter(), null);
+        versionProperties.store(versionBuildFile.newWriter(), null);
     } else 
         println("Could not find 'build.properties' file! Ignoring increment.");
     

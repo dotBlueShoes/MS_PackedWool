@@ -41,7 +41,6 @@ public class RegistryHandler {
     }
 
     public static void registerForgeOredict() {
-
         // Tag "woolColor" apparently they do exist so why not.
         OreDictionary.registerOre("woolLightBlue", ModBlocks.PACKED_WOOL_LIGHT_BLUE);
         OreDictionary.registerOre("woolLightGray", ModBlocks.PACKED_WOOL_LIGHT_GRAY);
@@ -65,5 +64,4 @@ public class RegistryHandler {
             OreDictionary.registerOre("wool", block);
         }
     }
-
 }

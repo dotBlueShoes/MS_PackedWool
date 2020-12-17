@@ -4,10 +4,7 @@
 - [ ] Remove EmptyRecipe class "comment it inside CraftingHandler".
 - [ ] Try making the textures slightly darker.
 - [ ] [Jitpack publishing](https://jitpack.io/)
-- [ ] Change revision and build order.
-- [ ] The @Mod "version" warning. Maybe i should store the full version information acording to the warning.
-- [ ] I should change build.properties with version.properties.
-- [ ] Check and if apply burning mechanic.
+- [ ] (actually no) Change revision and build order. The thing is i would have set revision to 0 when i build.
 ### ShearsLib
 - [ ] Implement blocks material - harvest lvl etc (look at serious_core project).
 - [ ] Think about making packed wool long to harvest and drop wool instead. And when harvested with shears it would drop packed wool.
@@ -26,6 +23,7 @@
 [OLD_API](https://skmedix.github.io/ForgeJavaDocs/)
 [API](https://forge.yue.moe)
 [Config_something](https://mcforge.readthedocs.io/en/1.12.x/config/annotations/)
+[deobf](https://github.com/neworldmc/mc-deobf)
 *https://github.com/bernie-g/geckolib/blob/1.12/build.gradle*
 *https://github.com/bernie-g/geckolib/blob/1.12/gradle.properties*
 *https://geckolib.com/en/latest/2.0.0/*

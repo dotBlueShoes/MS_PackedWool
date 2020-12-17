@@ -8,16 +8,17 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.block.state.IBlockState;
 import net.minecraftforge.common.IShearable;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+
 import java.util.ArrayList;
 import java.util.List;
-import net.minecraft.block.state.IBlockState;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
 
 import com.dotblueshoes.packed_wool.util.IHasModel;
 import com.dotblueshoes.packed_wool.init.ModBlocks;
@@ -45,7 +46,7 @@ public class PackedWoolBlock extends Block implements IHasModel, IShearable {
     //}
 
     @Override
-    public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos){
+    public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos) {
         return true;
     }
 
@@ -59,11 +60,22 @@ public class PackedWoolBlock extends Block implements IHasModel, IShearable {
         return ret;
     }
 
+    // 300 Being 100%.
+    @Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+        return 200;
+    }
+
+    // That should be somewhat faster then wool.
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+        return 50;
+    }
+
     public PackedWoolBlock(String name, Material material) {
         super(material);
 
         setSoundType(SoundType.CLOTH);
-        //setHarvestLevel("shears", 1);
         setResistance(1.0f);
         setHardness(1.0f); 
 

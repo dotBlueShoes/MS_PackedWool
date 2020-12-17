@@ -9,11 +9,8 @@ import net.minecraftforge.registries.ForgeRegistry;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 
-import com.dotblueshoes.packed_wool.util.recipes.EmptyRecipe;
-
 public class CraftingHandler {
-        //public static void RegisterRecipes() {}
-
+        
         public static void removeRecipes() {
 
                 ForgeRegistry<IRecipe> recipeRegistry = 
@@ -41,17 +38,3 @@ public class CraftingHandler {
 
 	}
 }
-
-// This is an example of something i don't remember .. let it stay here for a while.
-//import net.minecraft.init.Blocks;
-//import net.minecraft.item.Item;
-//import net.minecraft.item.ItemStack;
-//for (IRecipe r : recipes) {
-//    ItemStack output = r.getRecipeOutput();
-//    // wood log recipe?
-//    if (output.getItem() == Item.getItemFromBlock(Blocks.PLANKS)) {
-//        recipeRegistry.remove(r.getRegistryName());
-//        
-//        //recipeRegistry.register(EmptyRecipe.from(r));
-//    }
-//}

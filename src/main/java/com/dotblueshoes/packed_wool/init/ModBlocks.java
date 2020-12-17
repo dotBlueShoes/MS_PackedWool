@@ -10,6 +10,8 @@ import com.dotblueshoes.packed_wool.blocks.PackedWoolBlock;
 
 public class ModBlocks {
     public static final List<Block> BLOCKS = new ArrayList<Block>();
+
+    //public static Material PACKED_WOOL = Material.CLOTH;
     
     public static final Block PACKED_WOOL_LIGHT_BLUE = 
         new PackedWoolBlock("packed_wool_light_blue", Material.CLOTH);
