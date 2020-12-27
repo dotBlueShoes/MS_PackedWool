@@ -58,7 +58,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.dotBlueShoes:MS_PackedWool:v0.3.0';
+    implementation 'com.github.dotBlueShoes:MS_PackedWool:v0.3.2';
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854';
     compile files('libs/shears_lib-1.12.2-0.0.1.0.jar'/*, 'libs/Baubles-1.12-1.5.2.jar'*/);
     // compile "net.silentchaos512:silent-lib:3.0+"
@@ -109,7 +109,20 @@ jar {
 }
 
 // Now Turns out i might need it with jitpack.
-//
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
 
 
 // Acquires the version via newest git 'tag'/'release' if it fails it gets an "err-ver" + build_number.
