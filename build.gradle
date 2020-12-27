@@ -13,6 +13,7 @@ apply plugin: 'net.minecraftforge.gradle';
 apply plugin: 'maven-publish';
 apply plugin: 'eclipse';
 apply plugin: 'maven'; // gradlw install required it apparently.
+apply plugin: 'java';
 
 
 // Reads the variables from version.properties file in.
@@ -60,7 +61,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.dotBlueShoes:MS_PackedWool:v0.3.3';
+    implementation 'com.github.dotBlueShoes:MS_PackedWool:v0.3.4';
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854';
     compile files('libs/shears_lib-1.12.2-0.0.1.0.jar'/*, 'libs/Baubles-1.12-1.5.2.jar'*/);
     // compile "net.silentchaos512:silent-lib:3.0+"
