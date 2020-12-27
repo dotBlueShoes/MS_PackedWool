@@ -4,7 +4,7 @@
 - [ ] Remove EmptyRecipe class "comment it inside CraftingHandler".
 - [ ] Try making the textures slightly darker.
 - [ ] [Jitpack publishing](https://jitpack.io/)
-- [ ] (actually no) Change revision and build order. The thing is i would have set revision to 0 when i build.
+- [x] (actually no) Change revision and build order. The thing is i would have set revision to 0 when i build.
 ### ShearsLib
 - [ ] Implement blocks material - harvest lvl etc (look at serious_core project).
 - [ ] Think about making packed wool long to harvest and drop wool instead. And when harvested with shears it would drop packed wool.

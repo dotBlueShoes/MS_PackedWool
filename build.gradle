@@ -24,7 +24,7 @@ configFile.withReader {
 
 // Setting up the variables needed to build.
 version = config.minecraft_version + "-" + getVersion();
-group = "io.github.dotblueshoes.packed_wool";
+group = "com.github.dotBlueShoes";
 archivesBaseName = "packed_wool";
 
 sourceCompatibility = targetCompatibility = '1.8';
@@ -52,7 +52,13 @@ minecraft {
     //replaceIn 'PackedWool.java';
 }
 
+repositories {
+    // allows compiling things from github. its not recomended to do it this way but who cares.
+    maven { url 'https://jitpack.io' }
+}
+
 dependencies {
+    implementation 'com.github.dotBlueShoes:MS_PackedWool:v0.2.0';
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854';
     compile files('libs/shears_lib-1.12.2-0.0.1.0.jar'/*, 'libs/Baubles-1.12-1.5.2.jar'*/);
     // compile "net.silentchaos512:silent-lib:3.0+"
@@ -102,6 +108,10 @@ jar {
     }
 }
 
+// Now Turns out i might need it with jitpack.
+//
+
+
 // Acquires the version via newest git 'tag'/'release' if it fails it gets an "err-ver" + build_number.
 String getVersion() {
     try {
@@ -109,7 +119,7 @@ String getVersion() {
     } catch (Exception exception) {
         // Apperanlty i get 3 exceptions therefore this gets evaluated 3 times.
         println("Exception: Setting the version via Git failed!");
-        return "error_version-b" + getBuildNumber();
+        return "err_version_b" + getBuildNumber();
     } 
 }
 
@@ -137,7 +147,7 @@ String getGitVersion() {
 
 // Acquiring Build Number
 String getBuildNumber() {
-    def versionsFile = file('build.properties');
+    def versionsFile = file('build_num.properties');
 
     if( versionsFile.canRead() ) {
         Properties versionProperties = new Properties();
@@ -154,7 +164,7 @@ task incrementBuildNumber;
 
 // The doFirst prob. iserts this action at the front of the task's action list.
 incrementBuildNumber.doFirst {
-    def versionBuildFile = file('build.properties');
+    def versionBuildFile = file('build_num.properties');
 
     if ( versionBuildFile.canRead() ) {
         Properties versionProperties = new Properties();
@@ -166,7 +176,7 @@ incrementBuildNumber.doFirst {
         println("BuildNumber has incremented to: " + newNumber);
         versionProperties.store(versionBuildFile.newWriter(), null);
     } else 
-        println("Could not find 'build.properties' file! Ignoring increment.");
+        println("Could not find 'build_num.properties' file! Ignoring increment.");
     
 }
 
