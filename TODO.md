@@ -1,15 +1,19 @@
 ## MS_PackedWool 1.12.2 Dev ToDo List
 ### Main
-- [ ] Change creative tab apperance (they're not in the same order as wool is).
-- [ ] Remove EmptyRecipe class "comment it inside CraftingHandler".
+- [x] [Jitpack publishing](https://jitpack.io/) **I am done with it. pls help if u can. Still it's  a minor feature**
+
+- [x]  Change revision (actually no i am fine with how it is) and build order. 
+
+  *The thing is i would have set revision to 0 when i build. Therefore i would have different git versioning.*
+
+- [ ] Change creative tab appearance (they're not in the same order as wool is).
+
 - [ ] Try making the textures slightly darker.
-- [ ] [Jitpack publishing](https://jitpack.io/)
-- [x] (actually no) Change revision and build order. The thing is i would have set revision to 0 when i build.
 ### ShearsLib
 - [ ] Implement blocks material - harvest lvl etc (look at serious_core project).
 - [ ] Think about making packed wool long to harvest and drop wool instead. And when harvested with shears it would drop packed wool.
 - [ ] Make shears extensible (different speeds for different shear material).
-- [ ] Include Shers into the project.
+- [ ] Include Shears into the project.
 *https://github.com/BuildCraft/BuildCraft/tree/8.0.x-1.12.2/common/buildcraft*
 *https://forums.minecraftforge.net/topic/64469-have-a-modblock-break-faster-with-shears-like-wool/*
 ### Config
@@ -19,7 +23,7 @@
 - [ ] Config option to make hoes harvest wool/packed wool with the speed of 0.5f of shear equivalent.
 - [ ] Config to disable beds spawning in minecraft villages.
 
-### Links that i am looking into :smiley:
+### Links that i am looking into
 [OLD_API](https://skmedix.github.io/ForgeJavaDocs/)
 [API](https://forge.yue.moe)
 [Config_something](https://mcforge.readthedocs.io/en/1.12.x/config/annotations/)

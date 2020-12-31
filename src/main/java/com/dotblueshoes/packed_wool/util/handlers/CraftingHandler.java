@@ -12,7 +12,6 @@ import net.minecraft.util.ResourceLocation;
 public class CraftingHandler {
         
         public static void removeRecipes() {
-
                 ForgeRegistry<IRecipe> recipeRegistry = 
                         (ForgeRegistry<IRecipe>)ForgeRegistries.RECIPES;
 
@@ -35,6 +34,5 @@ public class CraftingHandler {
                 recipeRegistry.remove(new ResourceLocation("minecraft", "pink_bed"));
                 recipeRegistry.remove(new ResourceLocation("minecraft", "lime_bed"));
                 recipeRegistry.remove(new ResourceLocation("minecraft", "red_bed"));
-
 	}
 }
