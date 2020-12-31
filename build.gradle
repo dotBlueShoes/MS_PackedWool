@@ -9,7 +9,6 @@ buildscript {
     }
 }
 
-        
 apply plugin: 'net.minecraftforge.gradle';
 apply plugin: 'maven-publish';
 apply plugin: 'eclipse';
@@ -201,7 +200,7 @@ incrementBuildNumber.doFirst {
 build.finalizedBy incrementBuildNumber;
 
 // This should make it so jitpack will install gradle version 4.9 which is one i am using.
-wrapper {
-    gradleVersion = "4.9";
-    distributionType = Wrapper.DistributionType.ALL;
-}
+//wrapper {
+//    gradleVersion = "4.9";
+//    distributionType = Wrapper.DistributionType.ALL;
+//}
