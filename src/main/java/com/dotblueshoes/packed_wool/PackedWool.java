@@ -1,24 +1,19 @@
 package com.dotblueshoes.packed_wool;
 
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent; // !
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraft.init.Blocks;
 
 import org.apache.logging.log4j.Logger;
 
 import com.dotblueshoes.packed_wool.util.handlers.CraftingHandler;
 import com.dotblueshoes.packed_wool.proxy.CommonProxy;
-
 import com.dotblueshoes.shears_lib.ShearsLib;
 //import baubles.common.Baubles; - thing like that gonna end up in serious_core remove it if its added.
-
-// Forge OreDict things i hate.
-import com.dotblueshoes.packed_wool.util.handlers.RegistryHandler;
 
 @Mod (
     modid = "packed_wool",
@@ -46,7 +41,6 @@ public class PackedWool {
 
     @EventHandler
     public static void init(FMLInitializationEvent event) {
-        RegistryHandler.registerForgeOredict();
         CraftingHandler.removeRecipes();
     }
 

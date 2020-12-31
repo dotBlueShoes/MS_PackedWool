@@ -12,56 +12,53 @@ import com.dotblueshoes.packed_wool.util.IHasModel;
 import com.dotblueshoes.packed_wool.init.ModBlocks;
 import com.dotblueshoes.packed_wool.init.ModItems;
 
+import com.dotblueshoes.packed_wool.blocks.PackedWoolBlock;
+
 @EventBusSubscriber
 public class RegistryHandler {
 
     @SubscribeEvent
     public static void onItemRegister(RegistryEvent.Register<Item> event) {
-        event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
+        // Registering Items (key code to make items appear in game).
+        for (int i = 0; i < ModBlocks.BLOCKS_COUNT; i++)
+            event.getRegistry().register(ModBlocks.PACKED_WOOL_BLOCKS[i].getItemBlock());
+        for (int i = 0; i < ModItems.ITEMS_COUNT; i++)
+            event.getRegistry().register(ModItems.ITEMS[i]);
+
+        // Getting blocks into OreDictionary.
+        // I honestly don't know if i should also have color and wool tags separately.
+        OreDictionary.registerOre("packed_wool_white", ModBlocks.PACKED_WOOL_BLOCKS[0]);
+        OreDictionary.registerOre("packed_wool_orange", ModBlocks.PACKED_WOOL_BLOCKS[1]);
+        OreDictionary.registerOre("packed_wool_magenta", ModBlocks.PACKED_WOOL_BLOCKS[2]);
+        OreDictionary.registerOre("packed_wool_light_blue", ModBlocks.PACKED_WOOL_BLOCKS[3]);
+        OreDictionary.registerOre("packed_wool_yellow", ModBlocks.PACKED_WOOL_BLOCKS[4]);
+        OreDictionary.registerOre("packed_wool_lime", ModBlocks.PACKED_WOOL_BLOCKS[5]);
+        OreDictionary.registerOre("packed_wool_pink", ModBlocks.PACKED_WOOL_BLOCKS[6]);
+        OreDictionary.registerOre("packed_wool_gray", ModBlocks.PACKED_WOOL_BLOCKS[7]);
+        OreDictionary.registerOre("packed_wool_light_gray", ModBlocks.PACKED_WOOL_BLOCKS[8]);
+        OreDictionary.registerOre("packed_wool_cyan", ModBlocks.PACKED_WOOL_BLOCKS[9]);
+        OreDictionary.registerOre("packed_wool_purple", ModBlocks.PACKED_WOOL_BLOCKS[10]);
+        OreDictionary.registerOre("packed_wool_blue", ModBlocks.PACKED_WOOL_BLOCKS[11]);
+        OreDictionary.registerOre("packed_wool_brown", ModBlocks.PACKED_WOOL_BLOCKS[12]);
+        OreDictionary.registerOre("packed_wool_green", ModBlocks.PACKED_WOOL_BLOCKS[13]);
+        OreDictionary.registerOre("packed_wool_red", ModBlocks.PACKED_WOOL_BLOCKS[14]);
+        OreDictionary.registerOre("packed_wool_black", ModBlocks.PACKED_WOOL_BLOCKS[15]);
     }
 
     @SubscribeEvent
     public static void onBlockRegister(RegistryEvent.Register<Block> event) {
-        event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
+        for (int i = 0; i < ModBlocks.BLOCKS_COUNT; i++)
+            event.getRegistry().register(ModBlocks.PACKED_WOOL_BLOCKS[i]);
     }
 
     @SubscribeEvent
     public static void onModelRegister(ModelRegistryEvent event) {
-        for (Item item : ModItems.ITEMS) {
-            if (item instanceof IHasModel) {
-                ((IHasModel)item).registerModels();
-            }
-        }
+        for (int i = 0; i < ModItems.ITEMS_COUNT; i++)
+            if (ModItems.ITEMS[i] instanceof IHasModel)
+                ((IHasModel)ModItems.ITEMS[i]).registerModels();
 
-        for (Block block : ModBlocks.BLOCKS) {
-            if (block instanceof IHasModel) {
-                ((IHasModel)block).registerModels();
-            }
-        }
-    }
-
-    public static void registerForgeOredict() {
-        // Tag "woolColor" apparently they do exist so why not.
-        OreDictionary.registerOre("woolLightBlue", ModBlocks.PACKED_WOOL_LIGHT_BLUE);
-        OreDictionary.registerOre("woolLightGray", ModBlocks.PACKED_WOOL_LIGHT_GRAY);
-        OreDictionary.registerOre("woolMagenta", ModBlocks.PACKED_WOOL_MAGENTA);
-        OreDictionary.registerOre("woolOrange", ModBlocks.PACKED_WOOL_ORANGE);
-        OreDictionary.registerOre("woolPurple", ModBlocks.PACKED_WOOL_PURPLE);
-        OreDictionary.registerOre("woolYellow", ModBlocks.PACKED_WOOL_YELLOW);
-        OreDictionary.registerOre("woolBrown", ModBlocks.PACKED_WOOL_BROWN);
-        OreDictionary.registerOre("woolGreen", ModBlocks.PACKED_WOOL_GREEN);
-        OreDictionary.registerOre("woolBlack", ModBlocks.PACKED_WOOL_BLACK);
-        OreDictionary.registerOre("woolWhite", ModBlocks.PACKED_WOOL_WHITE);
-        OreDictionary.registerOre("woolBlue", ModBlocks.PACKED_WOOL_BLUE);
-        OreDictionary.registerOre("woolCyan", ModBlocks.PACKED_WOOL_CYAN);
-        OreDictionary.registerOre("woolGray", ModBlocks.PACKED_WOOL_GRAY);
-        OreDictionary.registerOre("woolLime", ModBlocks.PACKED_WOOL_LIME);
-        OreDictionary.registerOre("woolPink", ModBlocks.PACKED_WOOL_PINK);
-        OreDictionary.registerOre("woolRed", ModBlocks.PACKED_WOOL_RED);
-
-        // Tag "wool"
-        for (Block block : ModBlocks.BLOCKS) {
-            OreDictionary.registerOre("wool", block);
-        }
+        // I know in advance they have IHasModel.
+        for (int i = 0; i < ModBlocks.BLOCKS_COUNT; i++)
+            ((IHasModel)ModBlocks.PACKED_WOOL_BLOCKS[i]).registerModels();
     }
 }

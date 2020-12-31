@@ -2,28 +2,21 @@ package com.dotblueshoes.packed_wool.items.tools;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.ItemShears;
-
-import com.dotblueshoes.packed_wool.util.IHasModel;
-import com.dotblueshoes.packed_wool.init.ModItems;
-import com.dotblueshoes.packed_wool.PackedWool;
-
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
 import net.minecraft.init.Blocks;
 import net.minecraft.block.Block;
-import com.dotblueshoes.packed_wool.init.ModBlocks;
+
+import com.dotblueshoes.packed_wool.util.IHasModel;
+import com.dotblueshoes.packed_wool.PackedWool;
 
 public class Shears extends ItemShears implements IHasModel {
     public Shears(String name, ToolMaterial material) {
-        //super(material);
-
-        setCreativeTab(CreativeTabs.MATERIALS);
+        setCreativeTab(CreativeTabs.MATERIALS); // ? 
         setUnlocalizedName(name);
         setRegistryName("minecraft:shears");
-
-        ModItems.ITEMS.add(this);
     }
 
     @Override

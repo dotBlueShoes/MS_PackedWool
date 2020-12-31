@@ -47,12 +47,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug';
         }
     }
-
-    //replace '&MOD_VERSION&', version;
-    //replaceIn 'PackedWool.java';
 }
 
-//repositories { Jitpack that ain't working and throws so many errors that i am done.
+// Jitpack that ain't working and throws so many errors that i am done.
+//repositories { 
 //    // allows compiling things from github. its not recomended to do it this way but who cares.
 //    jcenter()
 //    maven { url 'https://jitpack.io' }
@@ -60,7 +58,7 @@ minecraft {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854';
-    compile files('libs/shears_lib-1.12.2-0.0.1.0.jar'/*, 'libs/Baubles-1.12-1.5.2.jar'*/);
+    compile files('libs/shears_lib-1.12.2-0.0.1.0.jar'/*, 'libs/jei_1.12.2-4.16.1.302.jar'*/);
     // compile "net.silentchaos512:silent-lib:3.0+"
 }
 
@@ -108,21 +106,19 @@ jar {
     }
 }
 
-// Now Turns out i might need it with jitpack.
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
+// Turns out i might need it with jitpack.
+//task sourcesJar(type: Jar, dependsOn: classes) {
+//    classifier = 'sources'
+//    from sourceSets.main.allSource
+//}
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//artifacts {
+//    archives sourcesJar
+//    archives javadocJar
+//}
 
 
 // Acquires the version via newest git 'tag'/'release' if it fails it gets an "err-ver" + build_number.

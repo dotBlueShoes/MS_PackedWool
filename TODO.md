@@ -1,14 +1,10 @@
 ## MS_PackedWool 1.12.2 Dev ToDo List
 ### Main
 - [x] [Jitpack publishing](https://jitpack.io/) **I am done with it. pls help if u can. Still it's  a minor feature**
-
 - [x]  Change revision (actually no i am fine with how it is) and build order. 
-
   *The thing is i would have set revision to 0 when i build. Therefore i would have different git versioning.*
-
-- [ ] Change creative tab appearance (they're not in the same order as wool is).
-
 - [ ] Try making the textures slightly darker.
+- [ ] Task to set build number to 0.
 ### ShearsLib
 - [ ] Implement blocks material - harvest lvl etc (look at serious_core project).
 - [ ] Think about making packed wool long to harvest and drop wool instead. And when harvested with shears it would drop packed wool.

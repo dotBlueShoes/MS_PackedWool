@@ -2,6 +2,7 @@ package com.dotblueshoes.packed_wool.blocks;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.block.material.Material;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.block.SoundType;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.block.Block;
@@ -26,6 +27,28 @@ import com.dotblueshoes.packed_wool.init.ModItems;
 import com.dotblueshoes.packed_wool.PackedWool;
 
 public class PackedWoolBlock extends Block implements IHasModel, IShearable {
+
+    public String name;
+
+    public PackedWoolBlock(String blockName, Material material) {
+        super(material); // calls parent class constructor. no idea. c# is better.
+
+        name = blockName; // Because i only use list this might come in handy.
+
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS); // Sets in which tab block is stored.
+        setSoundType(SoundType.CLOTH); // Setting the sound type when walked on.
+        setResistance(1.0f); // Boom resistance if i remember well.
+        setHardness(1.0f);  // Pickaxde if i remember well.
+
+        setUnlocalizedName(blockName);
+        setRegistryName(blockName);
+    }
+
+    public ItemBlock getItemBlock() {
+        ItemBlock temp = new ItemBlock(this);
+        temp.setRegistryName(name);
+        return temp; 
+    }
 
     @Override
     public void registerModels() {
@@ -59,31 +82,14 @@ public class PackedWoolBlock extends Block implements IHasModel, IShearable {
         setHardness(0.5f);
         return ret;
     }
-
-    // 300 Being 100%.
-    @Override
+    
+    @Override // 300 Being 100%.
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
-        return 200;
+        return 150;
     }
-
-    // That should be somewhat faster then wool.
-    @Override
+    
+    @Override // That should be somewhat faster then wool.
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
-        return 50;
-    }
-
-    public PackedWoolBlock(String name, Material material) {
-        super(material);
-
-        setSoundType(SoundType.CLOTH);
-        setResistance(1.0f);
-        setHardness(1.0f); 
-
-        setUnlocalizedName(name);
-        setRegistryName(name);
-        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        return 60;
     }
 }
