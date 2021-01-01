@@ -15,6 +15,10 @@ import com.dotblueshoes.packed_wool.proxy.CommonProxy;
 import com.dotblueshoes.shears_lib.ShearsLib;
 //import baubles.common.Baubles; - thing like that gonna end up in serious_core remove it if its added.
 
+//import net.minecraftforge.fml.ModLoadingContext;
+import com.dotblueshoes.packed_wool.config.ConfigHandler;
+//import net.minecraftforge.fml.config.ModConfig;
+
 @Mod (
     modid = "packed_wool",
     version = "0",//"&MOD_VERSION&", // I get a warning or something so have your version.
@@ -37,6 +41,8 @@ public class PackedWool {
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
+
+        ConfigHandler.loadConfig(event.getSuggestedConfigurationFile());
     }
 
     @EventHandler

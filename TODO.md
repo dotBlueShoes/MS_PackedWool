@@ -4,7 +4,7 @@
 - [x]  Change revision (actually no i am fine with how it is) and build order. 
   *The thing is i would have set revision to 0 when i build. Therefore i would have different git versioning.*
 - [ ] Try making the textures slightly darker.
-- [ ] Task to set build number to 0.
+- [ ] Create a file containing Minecraft account info. *buildcraft git - private.properties.example*
 ### ShearsLib
 - [ ] Implement blocks material - harvest lvl etc (look at serious_core project).
 - [ ] Think about making packed wool long to harvest and drop wool instead. And when harvested with shears it would drop packed wool.

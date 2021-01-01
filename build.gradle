@@ -168,6 +168,20 @@ String getBuildNumber() {
     return "error_build_number";
 }
 
+// Sets build number to 0.
+task clearBuildNumber {
+    def versionBuildFile = file('build_num.properties');
+
+    if ( versionBuildFile.canRead() ) {
+        Properties versionProperties = new Properties();
+        versionProperties.load(new FileInputStream(versionBuildFile));
+        versionProperties['bd_number'] = "0";
+        versionProperties.store(versionBuildFile.newWriter(), null);
+        println("BuildNumber has been set to 0");
+    } else 
+        println("Could not find 'build_num.properties' file! Ignoring setting to zero.");
+}
+
 // Declaration of the Increasing Build Number task.
 task incrementBuildNumber;
 
@@ -182,8 +196,8 @@ incrementBuildNumber.doFirst {
         int newNumber = versionProperties['bd_number'].toInteger() + 1;
         versionProperties['bd_number'] = newNumber.toString();
 
-        println("BuildNumber has incremented to: " + newNumber);
         versionProperties.store(versionBuildFile.newWriter(), null);
+        println("BuildNumber has incremented to: " + newNumber);
     } else 
         println("Could not find 'build_num.properties' file! Ignoring increment.");
     

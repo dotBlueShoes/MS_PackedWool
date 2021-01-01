@@ -1,22 +1,22 @@
 package com.dotblueshoes.packed_wool.blocks;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.block.SoundType;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.world.World;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.block.state.IBlockState;
 import net.minecraftforge.common.IShearable;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
