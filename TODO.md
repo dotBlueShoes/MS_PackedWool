@@ -2,7 +2,7 @@
 ### Main
 - [x] [Jitpack publishing](https://jitpack.io/) **I am done with it. pls help if u can. Still it's  a minor feature**
 - [x]  Change revision (actually no i am fine with how it is) and build order. 
-  *The thing is i would have set revision to 0 when i build. Therefore i would have different git versioning.*
+  *The thing is i would have to set revision to 0 when i build. Therefore i would have different git versioning system.*
 - [ ] Try making the textures slightly darker.
 - [ ] Create a file containing Minecraft account info. *buildcraft git - private.properties.example*
 ### ShearsLib
@@ -13,6 +13,10 @@
 *https://github.com/BuildCraft/BuildCraft/tree/8.0.x-1.12.2/common/buildcraft*
 *https://forums.minecraftforge.net/topic/64469-have-a-modblock-break-faster-with-shears-like-wool/*
 ### Config
+
+- [ ] Understand better whats going on here.
+- [ ] Think about whats here and whats in 1.13+ versions.
+
 - [ ] Config to make only "red_bed"/"legacy_bed" craftable.
 - [ ] Config to disable overriding minecraft basic shears.
 - [ ] Config to disable new bed recipes.
@@ -42,3 +46,35 @@
 *https://github.com/SilentChaos512/SilentLib/tree/1.12*
 *https://github.com/SilentChaos512/SilentLib/blob/1.12/build.gradle*
 *https://github.com/SilentChaos512/Silent-Gear/blob/1.12/build.gradle*
+
+
+
+
+
+/// config
+
+https://github.com/MinecraftForge/MinecraftForge/blob/603903db507a483fefd90445fd2b3bdafeb4b5e0/src/test/java/net/minecraftforge/debug/ConfigTest.java
+
+https://github.com/Glitchfiend/BiomesOPlenty/blob/BOP-1.12.x-7.0.x/src/main/java/biomesoplenty/api/config/IConfigObj.java
+
+https://github.com/Glitchfiend/BiomesOPlenty/blob/BOP-1.12.x-7.0.x/src/main/java/biomesoplenty/core/BiomesOPlenty.java
+
+https://github.com/Glitchfiend/BiomesOPlenty/blob/BOP-1.12.x-7.0.x/src/main/java/biomesoplenty/common/init/ModConfiguration.java
+
+https://github.com/Glitchfiend/BiomesOPlenty/blob/BOP-1.12.x-7.0.x/src/main/java/biomesoplenty/common/config/MiscConfigurationHandler.java
+
+https://github.com/lumien231/Hardcore-Darkness/blob/master/src/main/java/lumien/hardcoredarkness/config/ConfigHandler.java
+
+https://github.com/lumien231/Hardcore-Darkness/blob/master/src/main/java/lumien/hardcoredarkness/config/HardcoreDarknessConfig.java
+
+https://github.com/MattCzyr/NaturesCompass/blob/NaturesCompass-1.12.2/src/main/java/com/chaosthedude/naturescompass/NaturesCompass.java
+
+https://github.com/MattCzyr/NaturesCompass/blob/NaturesCompass-1.12.2/src/main/java/com/chaosthedude/naturescompass/config/ConfigHandler.java
+
+https://github.com/MattCzyr/NaturesCompass/blob/NaturesCompass-1.12.2/src/main/java/com/chaosthedude/naturescompass/NaturesCompass.java
+
+https://github.com/MattCzyr/NaturesCompass/tree/NaturesCompass-1.12.2/src/main/java/com/chaosthedude/naturescompass
+
+https://skmedix.github.io/ForgeJavaDocs/javadoc/forge/1.11.2-13.20.0.2228/net/minecraftforge/fml/client/event/ConfigChangedEvent.html#getConfigID--
+
+https://forums.minecraftforge.net/topic/62627-112-how-to-create-config/
