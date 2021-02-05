@@ -16,14 +16,18 @@
 
 - [ ] Understand better whats going on here.
 - [ ] Think about whats here and whats in 1.13+ versions.
-
 - [ ] Config to make only "red_bed"/"legacy_bed" craftable.
 - [ ] Config to disable overriding minecraft basic shears.
 - [ ] Config to disable new bed recipes.
 - [ ] Config option to make hoes harvest wool/packed wool with the speed of 0.5f of shear equivalent.
-- [ ] Config to disable beds spawning in minecraft villages.
+- [ ] Config to disable beds spawning in minecraft villages. 
+
+### Also 
+
+https://www.buymeacoffee.com
 
 ### Links that i am looking into
+
 [OLD_API](https://skmedix.github.io/ForgeJavaDocs/)
 [API](https://forge.yue.moe)
 [Config_something](https://mcforge.readthedocs.io/en/1.12.x/config/annotations/)

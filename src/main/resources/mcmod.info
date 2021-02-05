@@ -1,7 +1,7 @@
 [{
   "modid": "${modid}",
   "name": "Packed Wool",
-  "description": "This mod adds new block which replaces wool in bed crafting recipes.",
+  "description": "This mod adds new blocks which are replacing wool in bed crafting recipes.",
   "version": "${mod_version}",
   "mcversion": "${minecraft_version}",
   "url": "",

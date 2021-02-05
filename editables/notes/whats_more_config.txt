@@ -1,0 +1,13 @@
+small mod written in as not invasive as possible with forge api.
+
+
+natures compass
+hardcore darkness
+aqua creepers
+jei
+
+
+How to maintain more then one config?
+Where do i use config and where .json files?
+am i able to write comments in config only once?
+how do i make an in game config panel?

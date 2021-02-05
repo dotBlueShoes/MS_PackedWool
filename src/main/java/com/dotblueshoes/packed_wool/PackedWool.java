@@ -28,23 +28,29 @@ import com.dotblueshoes.packed_wool.config.ConfigHandler;
 
 public class PackedWool {
 
-    @Instance("packed_wool") // Some other mod might want it. lmao.
-    public static PackedWool instance;
+	@Instance("packed_wool") // Some other mod might want it. lmao.
+	public static PackedWool instance;
 
-    @SidedProxy( // Proxy - Both client and server have a server.
-        clientSide = "com.dotblueshoes.packed_wool.proxy.ClientProxy", 
-        serverSide = "com.dotblueshoes.packed_wool.proxy.CommonProxy"
+	@SidedProxy(
+    	clientSide = "com.dotblueshoes.packed_wool.proxy.ClientProxy", 
+    	serverSide = "com.dotblueshoes.packed_wool.proxy.CommonProxy"
     ) public static CommonProxy proxy;
 
     private static Logger logger;
 
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
-        logger = event.getModLog();
+    	logger = event.getModLog();
 
-        ConfigHandler.loadConfig(event.getSuggestedConfigurationFile());
+    	ConfigHandler.loadConfig(event.getSuggestedConfigurationFile());
     }
 
+    
+    /** thats here just to use somewhere at some point.
+     @param event the event that is being required or someshit.
+     @return nothing
+     @throws IllegalArgumentException if someshit i dont have it
+     */
     @EventHandler
     public static void init(FMLInitializationEvent event) {
         CraftingHandler.removeRecipes();
