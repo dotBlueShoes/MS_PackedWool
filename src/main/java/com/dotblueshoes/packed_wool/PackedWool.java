@@ -20,13 +20,15 @@ import com.dotblueshoes.packed_wool.config.ConfigHandler;
 //import net.minecraftforge.fml.config.ModConfig;
 
 @Mod (
-    modid = "packed_wool",
-    version = "0",//"&MOD_VERSION&", // I get a warning or something so have your version.
+    modid = PackedWool.MODID,
+    version = PackedWool.VERSION,
     dependencies = "required-before:shears_lib@[0.0.1.0]", 
     useMetadata = true
 )
 
 public class PackedWool {
+	public static final String MODID = "packed_wool";
+	public static final String VERSION = "0"; // "GRADLE_MOD_VERSION";
 
 	@Instance("packed_wool") // Some other mod might want it. lmao.
 	public static PackedWool instance;

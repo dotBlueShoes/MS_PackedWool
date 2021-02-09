@@ -14,7 +14,7 @@ apply plugin: 'maven-publish';
 apply plugin: 'eclipse';
 
 
-// Reads the variables from version.properties file in.
+// Reads the variables from version.properties file.
 ext.configFile = file("version.properties");
 configFile.withReader {
     Properties properties = new Properties();
@@ -22,31 +22,33 @@ configFile.withReader {
     project.ext.config = new ConfigSlurper().parse(properties);
 }
 
+
 // Setting up the variables needed to build.
 version = config.minecraft_version + "-" + getVersion();
 group = "com.github.dotBlueShoes";
 archivesBaseName = "packed_wool";
 
-sourceCompatibility = targetCompatibility = '1.8';
-compileJava { sourceCompatibility = targetCompatibility = '1.8'; }
 
-// Setting up Minecraft run.
-minecraft {
+// Something i belive needed for Eclipse only.
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8;
+compileJava { sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8; }
+
+
+minecraft { // Setting up Minecraft run.
     mappings channel: 'snapshot', version: '20171003-1.12';
-    
     runs {
         client {
             workingDirectory project.file('run');
-
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP';
             property 'forge.logging.console.level', 'debug';
         }
-
         server {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP';
             property 'forge.logging.console.level', 'debug';
         }
     }
+	//replace('GRADLE_MOD_VERSION', project.version); // i belive i simply have somewhat newer gradle and this aint the right code anymore.
+	//replaceIn 'PackedWool.java';
 }
 
 // Jitpack that ain't working and throws so many errors that i am done.
@@ -56,17 +58,19 @@ minecraft {
 //    maven { url 'https://jitpack.io' }
 //}
 
-dependencies {
-    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854';
-    compile files('libs/shears_lib-1.12.2-0.0.1.0.jar'/*, 'libs/jei_1.12.2-4.16.1.302.jar'*/);
-    // compile "net.silentchaos512:silent-lib:3.0+"
+
+dependencies { // Files needed to Compile our project. 
+    minecraft 'net.minecraftforge:forge:' + config.minecraft_version + '-' + config.forge_version;
+    compile files('libs/shears_lib-1.12.2-0.0.1.0.jar'/*, "libs/Baubles-1.12-1.5.2.jar"/*, 'libs/jei_1.12.2-4.16.1.302.jar'*/);
+    //compile "net.silentchaos512:silent-lib:3.0+";
 }
+
 
 // This is required for mcmod.info to be loaded in first place and then reloaded with each build.
 sourceSets { main { output.resourcesDir = output.classesDir; } }
 
-// Proccesses mcmod.info file variables.
-processResources {
+
+processResources { // Proccesses mcmod.info file variables.
     // This will ensure that it will change on build.
     inputs.property 'mcversion', config.minecraft_version;
     inputs.property 'version', version;
@@ -91,20 +95,20 @@ processResources {
 }
 
 
-// Manifest File. I Guess it's not very needed. But still it shows in the .jar file so let the values be.
-jar {
+jar { // Manifest File. I Guess it's not very needed. But still it shows in the .jar file so let the values be.
     manifest {
         attributes([
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            "Implementation-Vendor" :"dotbluesohes",
-            "Specification-Vendor": "dotblueshoes",
-            "Implementation-Version": "${version}",
+            "Implementation-Vendor" :"dotBlueShoes",
+            "Specification-Vendor": "dotBlueShoes",
+            "Implementation-Version": project.version, //"${version}",
             "Implementation-Title": project.name,
-            "Specification-Title": "packed_wool",
+            "Specification-Title": project.archivesBaseName,
             "Specification-Version": "1"
         ]);
     }
 }
+
 
 // Turns out i might need it with jitpack.
 //task sourcesJar(type: Jar, dependsOn: classes) {
@@ -121,8 +125,8 @@ jar {
 //}
 
 
-// Acquires the version via newest git 'tag'/'release' if it fails it gets an "err-ver" + build_number.
-String getVersion() {
+
+String getVersion() { // Acquires the version via newest git 'tag'/'release' if it fails it gets an "err-ver" + build_number.
     try {
         return getGitVersion();
     } catch (Exception exception) {
@@ -132,76 +136,66 @@ String getVersion() {
     } 
 }
 
-// Calling git command to acquire major, minor, revision number from tag.
-String getGitVersion() {
 
+String getGitVersion() { // Calling git command to acquire major, minor, revision number from tag.
     def outStream = new ByteArrayOutputStream()
     def result = exec {
         executable = 'git';
         args = [ 'describe', '--tags', '--long' ];
         standardOutput = outStream;
     }
-
     def fullVersion = outStream.toString().trim();
     def matcher = fullVersion =~ /(\d+).(\d+).(\d+)-(.*)/;
-
     // i know. but maybe i will use it somehow somewhere.
     def mj = matcher[0][1];
     def mn = matcher[0][2];
     def rv = matcher[0][3];
     def bd = getBuildNumber();
-
     return "${mj}.${mn}.${rv}.${bd}".toString();
 }
 
-// Acquiring Build Number
-String getBuildNumber() {
-    def versionsFile = file('build_num.properties');
 
+String getBuildNumber() { // Acquiring Build Number
+    def versionsFile = file('build_num.properties');
     if( versionsFile.canRead() ) {
         Properties versionProperties = new Properties();
         versionProperties.load(new FileInputStream(versionsFile));
-
         return versionProperties['bd_number'].toString();
-    }
-
-    return "error_build_number";
+    } 
+	return "error_build_number";
 }
 
-// Sets build number to 0.
-task clearBuildNumber {
-    def versionBuildFile = file('build_num.properties');
+/* Tasks */
+task incrementBuildNumber; // Declaration of the Increasing Build Number task.
+task clearBuildNumber; // Sets build number to 0.
 
+
+task clearBuildNumber.doLast {
+    def versionBuildFile = file('build_num.properties');
     if ( versionBuildFile.canRead() ) {
         Properties versionProperties = new Properties();
         versionProperties.load(new FileInputStream(versionBuildFile));
         versionProperties['bd_number'] = "0";
         versionProperties.store(versionBuildFile.newWriter(), null);
         println("BuildNumber has been set to 0");
-    } else 
+    } else {
         println("Could not find 'build_num.properties' file! Ignoring setting to zero.");
+	}
 }
 
-// Declaration of the Increasing Build Number task.
-task incrementBuildNumber;
 
-// The doFirst prob. iserts this action at the front of the task's action list.
 incrementBuildNumber.doFirst {
     def versionBuildFile = file('build_num.properties');
-
     if ( versionBuildFile.canRead() ) {
         Properties versionProperties = new Properties();
         versionProperties.load(new FileInputStream(versionBuildFile));
-
         int newNumber = versionProperties['bd_number'].toInteger() + 1;
         versionProperties['bd_number'] = newNumber.toString();
-
         versionProperties.store(versionBuildFile.newWriter(), null);
         println("BuildNumber has incremented to: " + newNumber);
     } else 
         println("Could not find 'build_num.properties' file! Ignoring increment.");
-    
 }
 
-// This should mean that it's gonna only increment on the successful builds.
-build.finalizedBy incrementBuildNumber;
+
+build.finalizedBy incrementBuildNumber; // This should mean that it's gonna only increment on the successful builds.

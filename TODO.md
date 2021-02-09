@@ -23,7 +23,8 @@
 - [ ] Config to disable beds spawning in minecraft villages. 
 
 ### Also 
-
+- About ingame mod version: So much stuff is depraceted that i can't find a fresh way to parse version from gradle.build to PackedWool.java. The solution to this might be somewhere in buildcraft, bop, and if ever found a fresh 1.12.2 mod that runs gradle i run (i belive 4.9).
+- There are some warning when compiled see "--warning-mode all" for more.
 https://www.buymeacoffee.com
 
 ### Links that i am looking into
