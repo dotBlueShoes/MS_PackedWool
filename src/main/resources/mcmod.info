@@ -2,12 +2,12 @@
   "modid": "${modid}",
   "name": "Packed Wool",
   "description": "This mod adds new blocks which are replacing wool in bed crafting recipes.",
-  "version": "${mod_version}",
-  "mcversion": "${minecraft_version}",
-  "url": "",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/dotBlueShoes/MS_PackedWool",
   "updateUrl": "",
   "authorList": ["dotBlueShoes"],
-  "credits": "To all the people having their source code availible on github. Forge forums fu.",
+  "credits": "Creadits To all the people having their tutorials and github repositories. :)",
   "logoFile": "",
   "screenshots": []
 }]

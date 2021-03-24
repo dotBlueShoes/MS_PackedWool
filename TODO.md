@@ -1,17 +1,11 @@
 ## MS_PackedWool 1.12.2 Dev ToDo List
 ### Main
-- [x] [Jitpack publishing](https://jitpack.io/) **I am done with it. pls help if u can. Still it's  a minor feature**
-- [x]  Change revision (actually no i am fine with how it is) and build order. 
-  *The thing is i would have to set revision to 0 when i build. Therefore i would have different git versioning system.*
-- [ ] Try making the textures slightly darker.
+- [x] [Jitpack publishing](https://jitpack.io/) **I am done with it. pls help if u can. Still it's a minor feature**
 - [ ] Create a file containing Minecraft account info. *buildcraft git - private.properties.example*
 ### ShearsLib
 - [ ] Implement blocks material - harvest lvl etc (look at serious_core project).
 - [ ] Think about making packed wool long to harvest and drop wool instead. And when harvested with shears it would drop packed wool.
 - [ ] Make shears extensible (different speeds for different shear material).
-- [ ] Include Shears into the project.
-*https://github.com/BuildCraft/BuildCraft/tree/8.0.x-1.12.2/common/buildcraft*
-*https://forums.minecraftforge.net/topic/64469-have-a-modblock-break-faster-with-shears-like-wool/*
 ### Config
 
 - [ ] Understand better whats going on here.
@@ -23,9 +17,7 @@
 - [ ] Config to disable beds spawning in minecraft villages. 
 
 ### Also 
-- About ingame mod version: So much stuff is depraceted that i can't find a fresh way to parse version from gradle.build to PackedWool.java. The solution to this might be somewhere in buildcraft, bop, and if ever found a fresh 1.12.2 mod that runs gradle i run (i belive 4.9).
-- There are some warning when compiled see "--warning-mode all" for more.
-https://www.buymeacoffee.com
+- There are some warning when compiled with "--warning-mode all".
 
 ### Links that i am looking into
 

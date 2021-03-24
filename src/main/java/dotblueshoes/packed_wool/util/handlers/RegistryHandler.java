@@ -1,4 +1,4 @@
-package com.dotblueshoes.packed_wool.util.handlers;
+package dotblueshoes.packed_wool.util.handlers;
 
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -8,11 +8,10 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
-import com.dotblueshoes.packed_wool.util.IHasModel;
-import com.dotblueshoes.packed_wool.init.ModBlocks;
-import com.dotblueshoes.packed_wool.init.ModItems;
-
-import com.dotblueshoes.packed_wool.blocks.PackedWoolBlock;
+import dotblueshoes.packed_wool.util.IHasModel;
+import dotblueshoes.packed_wool.init.ModBlocks;
+import dotblueshoes.packed_wool.init.ModItems;
+import dotblueshoes.packed_wool.blocks.PackedWoolBlock;
 
 @EventBusSubscriber
 public class RegistryHandler {

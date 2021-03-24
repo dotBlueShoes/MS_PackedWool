@@ -1,4 +1,4 @@
-package com.dotblueshoes.packed_wool.items.tools;
+package dotblueshoes.packed_wool.items.tools;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.block.state.IBlockState;
@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.init.Blocks;
 import net.minecraft.block.Block;
 
-import com.dotblueshoes.packed_wool.util.IHasModel;
-import com.dotblueshoes.packed_wool.PackedWool;
+import dotblueshoes.packed_wool.util.IHasModel;
+import dotblueshoes.packed_wool.PackedWool;
 
 public class Shears extends ItemShears implements IHasModel {
     public Shears(String name, ToolMaterial material) {

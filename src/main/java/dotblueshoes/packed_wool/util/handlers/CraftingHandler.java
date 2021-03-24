@@ -1,4 +1,4 @@
-package com.dotblueshoes.packed_wool.util.handlers;
+package dotblueshoes.packed_wool.util.handlers;
 
 import java.util.ArrayList;
 

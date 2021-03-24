@@ -1,4 +1,4 @@
-package com.dotblueshoes.packed_wool.proxy;
+package dotblueshoes.packed_wool.proxy;
 
 import net.minecraft.item.Item;
 

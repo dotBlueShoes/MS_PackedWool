@@ -1,4 +1,4 @@
-package com.dotblueshoes.packed_wool.util;
+package dotblueshoes.packed_wool.util;
 
 public interface IHasModel {
 

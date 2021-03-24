@@ -1,4 +1,4 @@
-package com.dotblueshoes.packed_wool.config;
+package dotblueshoes.packed_wool.config;
 
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -8,7 +8,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import java.io.File;
 
-import com.dotblueshoes.packed_wool.PackedWool;
+import dotblueshoes.packed_wool.PackedWool;
 
 /* Config Things
  *  Remember to remove config file "packed_wool" after changes to script. 

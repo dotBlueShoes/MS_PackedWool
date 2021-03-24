@@ -1,4 +1,4 @@
-package com.dotblueshoes.packed_wool.init;
+package dotblueshoes.packed_wool.init;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.Block;
@@ -7,7 +7,7 @@ import net.minecraft.block.Block;
 //import java.util.ArrayList;
 //import java.util.List;
 
-import com.dotblueshoes.packed_wool.blocks.PackedWoolBlock;
+import dotblueshoes.packed_wool.blocks.PackedWoolBlock;
 
 public class ModBlocks {
     // List of all Packed Wool blocks i am adding 

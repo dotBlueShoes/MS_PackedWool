@@ -1,4 +1,4 @@
-package com.dotblueshoes.packed_wool.blocks;
+package dotblueshoes.packed_wool.blocks;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,10 +21,10 @@ import net.minecraftforge.common.IShearable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.dotblueshoes.packed_wool.util.IHasModel;
-import com.dotblueshoes.packed_wool.init.ModBlocks;
-import com.dotblueshoes.packed_wool.init.ModItems;
-import com.dotblueshoes.packed_wool.PackedWool;
+import dotblueshoes.packed_wool.util.IHasModel;
+import dotblueshoes.packed_wool.init.ModBlocks;
+import dotblueshoes.packed_wool.init.ModItems;
+import dotblueshoes.packed_wool.PackedWool;
 
 public class PackedWoolBlock extends Block implements IHasModel, IShearable {
 
