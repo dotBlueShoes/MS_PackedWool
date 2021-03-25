@@ -61,8 +61,7 @@ minecraft { // Setting up Minecraft run.
 
 dependencies { // Files needed to Compile our project. 
     minecraft "net.minecraftforge:forge:" + project.minecraftVersion + '-' + project.forgeVersion;
-    compile files("libs/shears_lib-1.12.2-0.2.0.8.jar"/*, "libs/Baubles-1.12-1.5.2.jar"/*, 'libs/jei_1.12.2-4.16.1.302.jar'*/);
-    //compile "net.silentchaos512:silent-lib:3.0+";
+    compile files("libs/shears_lib-" + project.minecraftVersion + "-" + project.shearsLibVersion + ".jar");
 }
 
 

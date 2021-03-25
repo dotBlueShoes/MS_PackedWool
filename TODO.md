@@ -1,20 +1,12 @@
-## MS_PackedWool 1.12.2 Dev ToDo List
-### Main
-- [x] [Jitpack publishing](https://jitpack.io/) **I am done with it. pls help if u can. Still it's a minor feature**
-- [ ] Create a file containing Minecraft account info. *buildcraft git - private.properties.example*
-### ShearsLib
-- [ ] Implement blocks material - harvest lvl etc (look at serious_core project).
-- [ ] Think about making packed wool long to harvest and drop wool instead. And when harvested with shears it would drop packed wool.
-- [ ] Make shears extensible (different speeds for different shear material).
-### Config
+1. [Jitpack publishing](https://jitpack.io/) **I am done with it. pls help if u can. Still it's a minor feature**
+2. Create a file containing Minecraft account info. *buildcraft git - private.properties.example*
 
-- [ ] Understand better whats going on here.
-- [ ] Think about whats here and whats in 1.13+ versions.
-- [ ] Config to make only "red_bed"/"legacy_bed" craftable.
-- [ ] Config to disable overriding minecraft basic shears.
-- [ ] Config to disable new bed recipes.
-- [ ] Config option to make hoes harvest wool/packed wool with the speed of 0.5f of shear equivalent.
-- [ ] Config to disable beds spawning in minecraft villages. 
+### Config
+3. Understand better whats going on here.
+4. Think about whats here and whats in 1.13+ versions.
+5. Config to make only "red_bed"/"legacy_bed" craftable.
+6. Config to disable new bed recipes.
+7. Config to disable beds spawning in minecraft villages. 
 
 ### Also 
 - There are some warning when compiled with "--warning-mode all".
@@ -43,10 +35,6 @@
 *https://github.com/SilentChaos512/SilentLib/tree/1.12*
 *https://github.com/SilentChaos512/SilentLib/blob/1.12/build.gradle*
 *https://github.com/SilentChaos512/Silent-Gear/blob/1.12/build.gradle*
-
-
-
-
 
 /// config
 

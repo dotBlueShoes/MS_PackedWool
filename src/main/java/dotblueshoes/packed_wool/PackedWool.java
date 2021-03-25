@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 import dotblueshoes.packed_wool.util.handlers.CraftingHandler;
 import dotblueshoes.packed_wool.config.ConfigHandler;
 import dotblueshoes.packed_wool.proxy.CommonProxy;
-import dotblueshoes.shears_lib.ShearsLib;
+import dotblueshoes.shears_lib.*;
 //import baubles.common.Baubles; - thing like that gonna end up in serious_core remove it if its added.
 
 @Mod (
