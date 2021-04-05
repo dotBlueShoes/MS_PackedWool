@@ -13,7 +13,6 @@ apply plugin: 'net.minecraftforge.gradle';
 apply plugin: 'maven-publish';
 apply plugin: 'eclipse';
 
-
 // Reads the variables from version.properties file.
 // ext.configFile = file("version.properties");
 // configFile.withReader {
@@ -21,7 +20,6 @@ apply plugin: 'eclipse';
 //     properties.load(new FileInputStream(ext.configFile));
 //     project.ext.config = new ConfigSlurper().parse(properties);
 // }
-
 
 // Setting up the variables needed to build.
 version = project.minecraftVersion + "-" + GetVersion();
@@ -47,27 +45,14 @@ minecraft { // Setting up Minecraft run.
             property 'forge.logging.console.level', 'debug';
         }
     }
-	//replace('GRADLE_MOD_VERSION', project.version); // i belive i simply have somewhat newer gradle and this aint the right code anymore.
-	//replaceIn 'PackedWool.java';
 }
-
-// Jitpack that ain't working and throws so many errors that i am done.
-//repositories { 
-//    // allows compiling things from github. its not recomended to do it this way but who cares.
-//    jcenter()
-//    maven { url 'https://jitpack.io' }
-//}
-
 
 dependencies { // Files needed to Compile our project. 
     minecraft "net.minecraftforge:forge:" + project.minecraftVersion + '-' + project.forgeVersion;
-    compile files("libs/shears_lib-" + project.minecraftVersion + "-" + project.shearsLibVersion + ".jar");
 }
-
 
 // This is required for mcmod.info to be loaded in first place and then reloaded with each build.
 sourceSets { main { output.resourcesDir = output.classesDir; } }
-
 
 processResources { // Proccesses mcmod.info file variables.
     // This will ensure that it will change on build.
@@ -107,22 +92,6 @@ jar { // Manifest File. It's optional. But still it shows in the .jar file so le
         ]);
     }
 }
-
-
-// Turns out i might need it with jitpack.
-//task sourcesJar(type: Jar, dependsOn: classes) {
-//    classifier = 'sources'
-//    from sourceSets.main.allSource
-//}
-//task javadocJar(type: Jar, dependsOn: javadoc) {
-//    classifier = 'javadoc'
-//    from javadoc.destinationDir
-//}
-//artifacts {
-//    archives sourcesJar
-//    archives javadocJar
-//}
-
 
 // Functions 
 

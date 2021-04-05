@@ -21,11 +21,10 @@ import net.minecraftforge.common.IShearable;
 import java.util.ArrayList;
 import java.util.List;
 
-import dotblueshoes.packed_wool.util.IHasModel;
-import dotblueshoes.packed_wool.init.ModBlocks;
-import dotblueshoes.packed_wool.PackedWool;
+import dotblueshoes.packed_wool.init.*;
+import dotblueshoes.packed_wool.*;
 
-public class PackedWoolBlock extends Block implements IHasModel, IShearable {
+public class PackedWoolBlock extends Block implements IShearable {
 
     public String name;
 
@@ -49,7 +48,6 @@ public class PackedWoolBlock extends Block implements IHasModel, IShearable {
         return temp; 
     }
 
-    @Override
     public void registerModels() {
         PackedWool.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
@@ -84,11 +82,11 @@ public class PackedWoolBlock extends Block implements IHasModel, IShearable {
     
     @Override // 300 Being 100%.
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
-        return 150;
+        return 90;
     }
     
     @Override // That should be somewhat faster then wool.
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
-        return 60;
+        return 100;
     }
 }
