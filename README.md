@@ -9,9 +9,11 @@ PackedWool is a small minecraft mod which basically just adds few new woollike b
 ### The Goal
 - Slow down the access of minecraft beds. 
 - Introduce few new decorative blocks.
+- Provide a shared interface for shears and shearable items.
 
 ### Config
 Those settings can be changed inside the config file:
 - Not Yet. Option to replace all bed recipes with one recipe for a bed called "Legacy Bed" which is the original red bed.
 - Not Yet. Option to fully disable new recipes intoroduced by this mod.  
 - Option to disable overriding shears by this mod. (It's doing it to make Packed Wool sherable as wool).
+- Not yet. Option to specify blocks that are shearable.
