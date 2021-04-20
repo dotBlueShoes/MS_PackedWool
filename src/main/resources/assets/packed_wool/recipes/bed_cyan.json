@@ -4,6 +4,11 @@
         "aaa",
         "bcb"
     ],
+	"conditions": [
+		{
+			"type": "packed_wool:bed_recipes_enabled"
+		}
+	],
     "key": {
         "a": {
             "item": "packed_wool:packed_wool_cyan"

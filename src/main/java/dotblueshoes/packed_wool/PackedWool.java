@@ -24,7 +24,7 @@ public class PackedWool {
 	public static final String MODID = "packed_wool";
 	public static final String VERSION = "1";
 
-	//private static Logger logger;
+	private static Logger logger;
 
 	@Instance("packed_wool")
 	public static PackedWool instance;
@@ -38,15 +38,18 @@ public class PackedWool {
 
     @EventHandler
     public static void preInitialize(FMLPreInitializationEvent event) {
+		logger = event.getModLog();
+
     	ConfigHandler.initConfig(event.getSuggestedConfigurationFile());
 		if (!ConfigHandler.isShearsOverridingDisabled)
 			ModItems.overrideShears();
-		//logger = event.getModLog();
     }
 
     @EventHandler
     public static void initialize(FMLInitializationEvent event) {
-        RegistryHandler.removeRecipes();
+		if (!ConfigHandler.isDisableNewBedsRecipes  ||
+			ConfigHandler.isReplaceBedsWithLegacyBed)
+        	RegistryHandler.removeRecipes();
     }
 
     //public static void msgDebug(String msg) {
@@ -61,8 +64,8 @@ public class PackedWool {
     //     });
     // }
 
-	//public static void logInfo(String msg) { //
-    //    final String PREFIX = "$$$###$$$###";    
-    //    logger.info(PREFIX + msg);
-    //}
+	public static void logInfo(String msg) { //
+        final String PREFIX = "$$$###$$$###";    
+        logger.info(PREFIX + msg);
+    }
 }

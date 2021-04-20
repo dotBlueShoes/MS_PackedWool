@@ -1,0 +1,121 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"aaa",
+		"bcb"
+	],
+	"conditions": [
+		{
+			"type": "packed_wool:legacy_bed_enabled"
+		}
+	],
+	"key": {
+		"a": [
+			{
+				"item": "packed_wool:packed_wool_black"
+			},
+			{
+				"item": "packed_wool:packed_wool_blue"
+			},
+			{
+				"item": "packed_wool:packed_wool_brown"
+			},
+			{
+				"item": "packed_wool:packed_wool_cyan"
+			},
+			{
+				"item": "packed_wool:packed_wool_gray"
+			},
+			{
+				"item": "packed_wool:packed_wool_green"
+			},
+			{
+				"item": "packed_wool:packed_wool_light_blue"
+			},
+			{
+				"item": "packed_wool:packed_wool_light_gray"
+			},
+			{
+				"item": "packed_wool:packed_wool_lime"
+			},
+			{
+				"item": "packed_wool:packed_wool_magenta"
+			},
+			{
+				"item": "packed_wool:packed_wool_orange"
+			},
+			{
+				"item": "packed_wool:packed_wool_pink"
+			},
+			{
+				"item": "packed_wool:packed_wool_purple"
+			},
+			{
+				"item": "packed_wool:packed_wool_red"
+			},
+			{
+				"item": "packed_wool:packed_wool_white"
+			},
+			{
+				"item": "packed_wool:packed_wool_yellow"
+			}
+		],
+		"b": [
+			{
+				"item": "minecraft:planks",
+				"data": 0
+			},
+			{
+				"item": "minecraft:planks",
+				"data": 1
+			},
+			{
+				"item": "minecraft:planks",
+				"data": 2
+			},
+			{
+				"item": "minecraft:planks",
+				"data": 3
+			},
+			{
+				"item": "minecraft:planks",
+				"data": 4
+			},
+			{
+				"item": "minecraft:planks",
+				"data": 5
+			}
+		],
+		"c": [
+			{
+				"item": "minecraft:wooden_slab",
+				"data": 0
+			},
+			{
+				"item": "minecraft:wooden_slab",
+				"data": 1
+			},
+			{
+				"item": "minecraft:wooden_slab",
+				"data": 2
+			},
+			{
+				"item": "minecraft:wooden_slab",
+				"data": 3
+			},
+			{
+				"item": "minecraft:wooden_slab",
+				"data": 4
+			},
+			{
+				"item": "minecraft:wooden_slab",
+				"data": 5
+			}
+		]
+	},
+	"result": {
+		"item": "minecraft:bed",
+		"data": 14,
+		"count": 1
+	}
+}

@@ -32,6 +32,11 @@ public class Shears extends ItemShears {
     }
 
     public float getDestroySpeed(ItemStack stack, IBlockState state) {
+		//PackedWool.logInfo("aaa");
+		// This means that the block might not need the isShearable thingy at all..
+		//  it should be possible to define a list of blocks and materials 
+		//  inside config that will be executed here. 
+
         Block block = state.getBlock();
 
         if (block != Blocks.WEB && state.getMaterial() != Material.LEAVES)
