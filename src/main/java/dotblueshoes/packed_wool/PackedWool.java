@@ -4,7 +4,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
+//import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.Mod;
 
@@ -26,8 +26,8 @@ public class PackedWool {
 
 	private static Logger logger;
 
-	@Instance("packed_wool")
-	public static PackedWool instance;
+	//@Instance("packed_wool")
+	//public static PackedWool instance;
 
 	@SidedProxy (
     	clientSide = "dotblueshoes.packed_wool.proxy.ClientProxy", 

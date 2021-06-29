@@ -35,22 +35,22 @@ public class RegistryHandler {
 
         // Getting blocks into OreDictionary.
         //  I honestly don't know if i should also have color and wool tags separately.
-        OreDictionary.registerOre("packed_wool_white", ModItems.PACKED_WOOL_BLOCKS[0]);
-        OreDictionary.registerOre("packed_wool_orange", ModItems.PACKED_WOOL_BLOCKS[1]);
-        OreDictionary.registerOre("packed_wool_magenta", ModItems.PACKED_WOOL_BLOCKS[2]);
+        OreDictionary.registerOre("packed_wool_white", 		ModItems.PACKED_WOOL_BLOCKS[0]);
+        OreDictionary.registerOre("packed_wool_orange", 	ModItems.PACKED_WOOL_BLOCKS[1]);
+        OreDictionary.registerOre("packed_wool_magenta", 	ModItems.PACKED_WOOL_BLOCKS[2]);
         OreDictionary.registerOre("packed_wool_light_blue", ModItems.PACKED_WOOL_BLOCKS[3]);
-        OreDictionary.registerOre("packed_wool_yellow", ModItems.PACKED_WOOL_BLOCKS[4]);
-        OreDictionary.registerOre("packed_wool_lime", ModItems.PACKED_WOOL_BLOCKS[5]);
-        OreDictionary.registerOre("packed_wool_pink", ModItems.PACKED_WOOL_BLOCKS[6]);
-        OreDictionary.registerOre("packed_wool_gray", ModItems.PACKED_WOOL_BLOCKS[7]);
+        OreDictionary.registerOre("packed_wool_yellow", 	ModItems.PACKED_WOOL_BLOCKS[4]);
+        OreDictionary.registerOre("packed_wool_lime", 		ModItems.PACKED_WOOL_BLOCKS[5]);
+        OreDictionary.registerOre("packed_wool_pink", 		ModItems.PACKED_WOOL_BLOCKS[6]);
+        OreDictionary.registerOre("packed_wool_gray", 		ModItems.PACKED_WOOL_BLOCKS[7]);
         OreDictionary.registerOre("packed_wool_light_gray", ModItems.PACKED_WOOL_BLOCKS[8]);
-        OreDictionary.registerOre("packed_wool_cyan", ModItems.PACKED_WOOL_BLOCKS[9]);
-        OreDictionary.registerOre("packed_wool_purple", ModItems.PACKED_WOOL_BLOCKS[10]);
-        OreDictionary.registerOre("packed_wool_blue", ModItems.PACKED_WOOL_BLOCKS[11]);
-        OreDictionary.registerOre("packed_wool_brown", ModItems.PACKED_WOOL_BLOCKS[12]);
-        OreDictionary.registerOre("packed_wool_green", ModItems.PACKED_WOOL_BLOCKS[13]);
-        OreDictionary.registerOre("packed_wool_red", ModItems.PACKED_WOOL_BLOCKS[14]);
-        OreDictionary.registerOre("packed_wool_black", ModItems.PACKED_WOOL_BLOCKS[15]);
+        OreDictionary.registerOre("packed_wool_cyan", 		ModItems.PACKED_WOOL_BLOCKS[9]);
+        OreDictionary.registerOre("packed_wool_purple", 	ModItems.PACKED_WOOL_BLOCKS[10]);
+        OreDictionary.registerOre("packed_wool_blue", 		ModItems.PACKED_WOOL_BLOCKS[11]);
+        OreDictionary.registerOre("packed_wool_brown", 		ModItems.PACKED_WOOL_BLOCKS[12]);
+        OreDictionary.registerOre("packed_wool_green", 		ModItems.PACKED_WOOL_BLOCKS[13]);
+        OreDictionary.registerOre("packed_wool_red", 		ModItems.PACKED_WOOL_BLOCKS[14]);
+        OreDictionary.registerOre("packed_wool_black", 		ModItems.PACKED_WOOL_BLOCKS[15]);
     }
 
     @SubscribeEvent
