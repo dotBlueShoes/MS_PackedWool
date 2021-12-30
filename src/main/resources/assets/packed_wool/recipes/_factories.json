@@ -1,6 +1,7 @@
 {
 	"conditions": {
-		"bed_recipes_enabled": "dotblueshoes.packed_wool.crafting.BedRecipeFactory",
-		"legacy_bed_enabled": "dotblueshoes.packed_wool.crafting.LegacyBedRecipeFactory"
+		"packed_wool_recipes_enabled": "dotblueshoes.packed_wool.crafting.PackedWoolRecipeFactory",
+		"legacy_bed_enabled": "dotblueshoes.packed_wool.crafting.LegacyBedRecipeFactory",
+		"bed_recipes_enabled": "dotblueshoes.packed_wool.crafting.BedRecipeFactory"
 	}
 }

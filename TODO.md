@@ -1,31 +1,41 @@
 
+// Here's what's going wrong
+// PackedWool class has to be changed.
+// The enum has to be in it as well as logic to it.
+// it can be viewed in "BlockWoodSlab", "BlockPlanks",
+// classes for example.
+
 // 1.0.0.0 
 // - shears-lib functionality
 // materials for shears. (different speeds, durability)
-// shearable blocklist. (additionaly a check with all the current loaded blocks)
+// shearable blocklist. (additionally a check with all the current loaded blocks)
 
 
 1. [Jitpack publishing](https://jitpack.io/) 
 **I am done with it. pls help if u can. Still it's a minor feature**
-4. Think about whats here and whats in 1.13+ versions.
+4. Think about what's here and what's in 1.13+ versions.
 7. Giant Sheep
 
 // Scaling entities.
 // https://github.com/the-realest-stu/Lilliputian
 
-// Creating an new entity
+// Creating a new entity
 // https://wiki.mcjty.eu/modding/index.php?title=Mobs-1.12
 
-// Both ways seem a little to much
-//  theres prob. something in beetween that can be used
+// Both ways seem a little too much
+//  there's prob. something in between that can be used
 //  to create a mob of a sheep model that will be 1.5 size of original.
 
-8. Make it so packedWool can be only collected with shears otherwise the player gets 3 wool always.
-9. PackedWool slab variants
-10. PackedWool decorative variants (terracotta style)
+8. Make it so packedWool can be only collected with shears otherwise the player gets 3 wool.
+9. PackedWool slab variants.
+10. PackedWool decorative variants (terracotta style).
 11. Make normal wool act as spider web (the player will fall into the block)
+12. It also spawns spring-web like particles upon moving through.
+13. Take care of advancements.
+14. Mod integration with davinci .
+15. Singular wool / packed wool and all their variants that can be colored in all colors.
 
-### Links that i am looking into
+### Links that I am looking into
 
 [OLD_API](https://skmedix.github.io/ForgeJavaDocs/)
 [API](https://forge.yue.moe)

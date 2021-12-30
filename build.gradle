@@ -22,7 +22,7 @@ apply plugin: 'eclipse';
 // }
 
 // Setting up the variables needed to build.
-version = project.minecraftVersion + "-" + GetVersion();
+version = minecraftVersion + "-" + GetVersion();
 group = "io.github.dotBlueShoes";
 archivesBaseName = "packed_wool";
 
@@ -36,7 +36,7 @@ minecraft { // Setting up Minecraft run.
     mappings channel: 'snapshot', version: '20171003-1.12';
     runs {
         client {
-            workingDirectory project.file('run');
+            workingDirectory file('run');
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP';
             property 'forge.logging.console.level', 'debug';
         }
@@ -48,7 +48,7 @@ minecraft { // Setting up Minecraft run.
 }
 
 dependencies { // Files needed to Compile our project. 
-    minecraft "net.minecraftforge:forge:" + project.minecraftVersion + '-' + project.forgeVersion;
+    minecraft "net.minecraftforge:forge:" + minecraftVersion + '-' + forgeVersion;
 }
 
 // This is required for mcmod.info to be loaded in first place and then reloaded with each build.
@@ -56,18 +56,18 @@ sourceSets { main { output.resourcesDir = output.classesDir; } }
 
 processResources { // Proccesses mcmod.info file variables.
     // This will ensure that it will change on build.
-    inputs.property 'mcversion', project.minecraftVersion;
-    inputs.property 'version', project.version;
-    inputs.property 'modid', project.archivesBaseName;
+    inputs.property 'mcversion', minecraftVersion;
+    inputs.property 'version', version;
+    inputs.property 'modid', archivesBaseName;
 
     // This replaces mcmod.info variables.
     from(sourceSets.main.resources.srcDirs) {
         include '**/mcmod.info';
 
         expand ([
-            'mcversion': project.minecraftVersion,
-            'version': project.version,
-            'modid': project.archivesBaseName
+            'mcversion': minecraftVersion,
+            'version': version,
+            'modid': archivesBaseName
         ]);
     }
 
@@ -85,9 +85,9 @@ jar { // Manifest File. It's optional. But still it shows in the .jar file so le
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
             "Implementation-Vendor" :"dotBlueShoes",
             "Specification-Vendor": "dotBlueShoes",
-            "Implementation-Version": project.version, //"${version}",
-            "Implementation-Title": project.name,
-            "Specification-Title": project.archivesBaseName,
+            "Implementation-Version": version, //"${version}",
+            "Implementation-Title": name,
+            "Specification-Title": archivesBaseName,
             "Specification-Version": "1"
         ]);
     }

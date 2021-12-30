@@ -4,6 +4,11 @@
         "aa",
         "aa"
     ],
+    "conditions": [
+        {
+            "type":"packed_wool:packed_wool_recipes_enabled"
+        }
+    ],
     "key": {
         "a": {
             "item": "minecraft:wool",

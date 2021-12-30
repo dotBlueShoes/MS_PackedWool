@@ -1,4 +1,4 @@
-// BLOCKS
+# BLOCKS
 tile.packed_wool_light_blue.name=Light Blue Packed Wool
 tile.packed_wool_light_gray.name=Light Gray Packed Wool
 tile.packed_wool_magenta.name=Magenta Packed Wool
@@ -15,3 +15,5 @@ tile.packed_wool_gray.name=Grey Packed Wool
 tile.packed_wool_lime.name=Lime Packed Wool
 tile.packed_wool_pink.name=Pink Packed Wool
 tile.packed_wool_red.name=Red Packed Wool
+# SLABBLOCKS
+tile.half_slab_packed_wool_black.name=Black Packed Wool Slab

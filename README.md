@@ -7,19 +7,20 @@
 PackedWool addresses the lack of woollike decorative blocks. Tho along the development i have
 decided to add additional functionality that always can be disabled via config.
 
-The mod is designed to be as non invasive as it is possible using forge API. Current features of the mod are:
+The mod is designed to be as non-invasive as it is possible using forge API. Current features of the mod are:
 - 16 new woollike blocks.
 - Changed bed recipe/s.
 
 It is planned to add:
-- a giant sheep as a rare friendly mob.
-- additional 16 woollike blocks with different pattern for each.
-- packed wool slab variants.
-- packed wool carpet variants.
-- make the normal wool act a little different.. :) 
+- Giant sheep as a rare friendly mob that might occur.
+- Additional 16 woollike blocks with different pattern for each.
+- Packed wool slab variants.
+- Packed wool carpet variants.
+- Make the normal wool act differently... :) .
+- Single wool and packed wool which in instead can be colored in rgb.
 
 ### The Goal
-- Introduce few new decorative blocks and give purpose to wool.
+- Introduce few new decorative blocks and give more purpose to wool.
 - Slow down the access of minecraft beds.
 - Provide a shared programming interface for shears and shearable blocks.
 

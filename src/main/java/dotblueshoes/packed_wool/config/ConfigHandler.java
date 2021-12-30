@@ -31,14 +31,18 @@ public class ConfigHandler {
     public static Configuration config;
 
 	final static String 
-		commentDisableOverridingShears = "Vanilla shears are being overrided so they can harvest specified blocks faster. Disable it if required.",
-		commentReplaceBedsWithLegacyBed = "Removes all the minecraft beds recipes. Leaves a new bed called 'Legacy Bed' which is the red bed",
-		commentDisableNewBedsRecipes = "Keeps the beds recipes unchanged.";
+		commentIsDisableOverridingShears = "Vanilla shears are being overridden so they can harvest specified blocks faster. Disable it if required.",
+		commentIsReplaceBedsWithLegacyBed = "Removes all the minecraft beds recipes. Leaves a new bed called 'Legacy Bed' which is the red bed",
+		commentIsDisablePackedWoolRecipes = "When marked this mod itself does not add recipes for packed wool",
+		commentIsDisableNewBedsRecipes = "Keeps the beds recipes unchanged.";
+
 
 	public static boolean 
 		isShearsOverridingDisabled = false,
-		isReplaceBedsWithLegacyBed = false, 
+		isReplaceBedsWithLegacyBed = false,
+		isDisablePackedWoolRecipes = false,
 		isDisableNewBedsRecipes = false;
+
 
 	public static void initConfig(File file) {
 		config = new Configuration(file);
@@ -51,21 +55,28 @@ public class ConfigHandler {
 		isShearsOverridingDisabled = loadBool(
 			Configuration.CATEGORY_GENERAL,
 			"IsShearsOverridingDisabled",
-			commentDisableOverridingShears,
+			commentIsDisableOverridingShears,
 			isShearsOverridingDisabled
 		);
 
 		isReplaceBedsWithLegacyBed = loadBool(
 			Configuration.CATEGORY_GENERAL,
 			"IsReplaceBedsWithLegacyBed",
-			commentReplaceBedsWithLegacyBed,
+			commentIsReplaceBedsWithLegacyBed,
 			isReplaceBedsWithLegacyBed
+		);
+
+		isDisablePackedWoolRecipes = loadBool(
+			Configuration.CATEGORY_GENERAL,
+			"IsDisablePackedWoolRecipes",
+			commentIsDisablePackedWoolRecipes,
+			isDisablePackedWoolRecipes
 		);
 
 		isDisableNewBedsRecipes = loadBool(
 			Configuration.CATEGORY_GENERAL,
 			"IsDisableNewBedsRecipes",
-			commentDisableNewBedsRecipes,
+			commentIsDisableNewBedsRecipes,
 			isDisableNewBedsRecipes
 		);
 		
