@@ -1,26 +1,26 @@
-package dotblueshoes.packed_wool.blocks;
+package dotblueshoes.packed_wool.blocks.stairs;
 
 import dotblueshoes.packed_wool.blocks.utility.IPackedWoolBlock;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.BlockStairs;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.item.ItemStack;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Nonnull;
-
-public class PackedWoolBlock extends Block implements IPackedWoolBlock {
-
+public class PackedWoolStairsBlock extends BlockStairs implements IPackedWoolBlock {
 	public String name;
 
-	public PackedWoolBlock(String blockName, Material material) {
-		super(material);
-		name = blockName; 	// Because I only use list this might come in handy.
+	public PackedWoolStairsBlock(String blockName, IBlockState modelState) {
+		super(modelState);
+
+		this.name = blockName;
+		this.useNeighborBrightness = true;
 
 		this.setUnlocalizedName(blockName);
 		this.setRegistryName(blockName);
@@ -31,15 +31,9 @@ public class PackedWoolBlock extends Block implements IPackedWoolBlock {
 		this.setHardness(HARDNESS);
 	}
 
-	//public ItemBlock getItemBlock() {
-	//	ItemBlock temp = new ItemBlock(this);
-	//	temp.setRegistryName(name);
-	//	return temp;
-	//}
-
-	@Override
 	@Nonnull
-	public List<ItemStack> onSheared(@Nonnull ItemStack item, IBlockAccess world, BlockPos position, int fortune) {
+	@Override
+	public List<ItemStack> onSheared(@Nonnull ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
 		List<ItemStack> temp = new ArrayList<>();
 		temp.add(new ItemStack(Item.getItemFromBlock(this)));
 

@@ -36,6 +36,10 @@
 15. Fix advancements upon world loading.
      https://forums.minecraftforge.net/topic/60078-add-and-remove-advancements/
 16. Slab recipes. Make Serious Recipes give 2 instead of 3.
+17. Implement other stairs (rename the models so they have same name conv of blockstates.)
+18. Implement "getItemBlock()" methods
+
+
 ### Links that I am looking into
 
 [OLD_API](https://skmedix.github.io/ForgeJavaDocs/)

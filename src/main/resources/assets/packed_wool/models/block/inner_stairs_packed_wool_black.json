@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+	"bottom": "packed_wool:blocks/packed_wool_black",
+	"top": "packed_wool:blocks/packed_wool_black",
+	"side": "packed_wool:blocks/packed_wool_black"
+  }
+}

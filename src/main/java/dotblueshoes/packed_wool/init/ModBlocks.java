@@ -2,7 +2,9 @@ package dotblueshoes.packed_wool.init;
 
 import dotblueshoes.packed_wool.blocks.PackedWoolBlock;
 import dotblueshoes.packed_wool.blocks.slabs.PackedWoolSlabBlock;
+import dotblueshoes.packed_wool.blocks.stairs.PackedWoolStairsBlock;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 
 public class ModBlocks {
 
@@ -28,25 +30,6 @@ public class ModBlocks {
 		new PackedWoolBlock("packed_wool_black", Material.CLOTH),
 	};
 
-	public static PackedWoolSlabBlock.Double[] PACKED_WOOL_DOUBLE_SLAB_BLOCKS = {
-		new PackedWoolSlabBlock.Double("packed_wool_white_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_orange_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_magenta_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_light_blue_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_yellow_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_lime_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_pink_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_gray_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_light_gray_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_cyan_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_purple_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_blue_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_brown_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_green_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_red_double_slab", Material.CLOTH),
-		new PackedWoolSlabBlock.Double("packed_wool_black_double_slab", Material.CLOTH),
-	};
-
 	public static PackedWoolSlabBlock.Half[] PACKED_WOOL_SLAB_BLOCKS = {
 		new PackedWoolSlabBlock.Half("packed_wool_white_slab", Material.CLOTH),
 		new PackedWoolSlabBlock.Half("packed_wool_orange_slab", Material.CLOTH),
@@ -65,5 +48,26 @@ public class ModBlocks {
 		new PackedWoolSlabBlock.Half("packed_wool_red_slab", Material.CLOTH),
 		new PackedWoolSlabBlock.Half("packed_wool_black_slab", Material.CLOTH),
 	};
+
+	public static PackedWoolSlabBlock.Double[] PACKED_WOOL_DOUBLE_SLAB_BLOCKS = {
+		new PackedWoolSlabBlock.Double("packed_wool_white_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[0]),
+		new PackedWoolSlabBlock.Double("packed_wool_orange_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[1]),
+		new PackedWoolSlabBlock.Double("packed_wool_magenta_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[2]),
+		new PackedWoolSlabBlock.Double("packed_wool_light_blue_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[3]),
+		new PackedWoolSlabBlock.Double("packed_wool_yellow_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[4]),
+		new PackedWoolSlabBlock.Double("packed_wool_lime_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[5]),
+		new PackedWoolSlabBlock.Double("packed_wool_pink_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[6]),
+		new PackedWoolSlabBlock.Double("packed_wool_gray_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[7]),
+		new PackedWoolSlabBlock.Double("packed_wool_light_gray_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[8]),
+		new PackedWoolSlabBlock.Double("packed_wool_cyan_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[9]),
+		new PackedWoolSlabBlock.Double("packed_wool_purple_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[10]),
+		new PackedWoolSlabBlock.Double("packed_wool_blue_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[11]),
+		new PackedWoolSlabBlock.Double("packed_wool_brown_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[12]),
+		new PackedWoolSlabBlock.Double("packed_wool_green_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[13]),
+		new PackedWoolSlabBlock.Double("packed_wool_red_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[14]),
+		new PackedWoolSlabBlock.Double("packed_wool_black_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[15]),
+	};
+
+	public static PackedWoolStairsBlock packedWoolStairsBlockBlack = new PackedWoolStairsBlock("packed_wool_black_stairs", PACKED_WOOL_BLOCKS[0].getDefaultState());
 
 }

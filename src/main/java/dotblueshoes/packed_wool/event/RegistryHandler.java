@@ -78,6 +78,9 @@ public class RegistryHandler {
 			event.getRegistry().register(block);
 		for (Block block : ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS)
 			event.getRegistry().register(block);
+
+		event.getRegistry().register(ModBlocks.packedWoolStairsBlockBlack);
+
 		//event.getRegistry().register(ModBlocks.packedWoolSlabBlockDouble);
 		//event.getRegistry().register(ModBlocks.packedWoolSlabBlockHalf);
 
@@ -98,6 +101,8 @@ public class RegistryHandler {
 			PackedWool.proxy.registerItemRenderer(Item.getItemFromBlock(block), 0, "inventory");
 		for (Block block : ModBlocks.PACKED_WOOL_SLAB_BLOCKS)
 			PackedWool.proxy.registerItemRenderer(Item.getItemFromBlock(block), 0, "inventory");
+
+		PackedWool.proxy.registerItemRenderer(Item.getItemFromBlock(ModBlocks.packedWoolStairsBlockBlack), 0, "inventory");
 		//for (int i = 0; i < ModBlocks.PACKED_WOOL_BLOCKS.length; i++)
 		//	ModBlocks.PACKED_WOOL_BLOCKS[i].registerModel();
 		//PackedWool.proxy.registerItemRenderer(Item.getItemFromBlock(ModBlocks.packedWoolSlabBlockHalf), 0, "inventory");

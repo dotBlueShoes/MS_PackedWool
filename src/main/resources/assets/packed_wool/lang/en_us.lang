@@ -32,3 +32,5 @@ tile.packed_wool_gray_slab.name=Grey Packed Wool Slab
 tile.packed_wool_lime_slab.name=Lime Packed Wool Slab
 tile.packed_wool_pink_slab.name=Pink Packed Wool Slab
 tile.packed_wool_red_slab.name=Red Packed Wool Slab
+# STAIR_BLOCK
+tile.packed_wool_black_stairs.name=Red Packed Wool Stairs

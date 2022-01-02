@@ -65,6 +65,7 @@ public class ModItems {
 			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[14].getRegistryName()),
 		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[15], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[15], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[15])
 			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[15].getRegistryName()),
+		(ItemBlock) new ItemBlock(ModBlocks.packedWoolStairsBlockBlack).setRegistryName(ModBlocks.packedWoolStairsBlockBlack.name)
 	};
 
 }

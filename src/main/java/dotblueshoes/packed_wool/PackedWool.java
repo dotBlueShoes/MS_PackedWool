@@ -32,8 +32,6 @@ public class PackedWool {
     	serverSide = "dotblueshoes.packed_wool.proxy.CommonProxy"
     ) public static CommonProxy proxy;
 
-    
-
     @EventHandler
     public static void preInitialize(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
