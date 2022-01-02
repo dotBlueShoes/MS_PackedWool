@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 
 import dotblueshoes.packed_wool.config.*;
 
+@SuppressWarnings("unused")
 public class BedRecipeFactory implements IConditionFactory {
 
 	// This is how we tell that there's a condition in json file.

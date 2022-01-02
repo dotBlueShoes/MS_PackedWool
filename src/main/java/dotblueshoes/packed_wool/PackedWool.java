@@ -1,10 +1,8 @@
 package dotblueshoes.packed_wool;
 
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.Mod.EventHandler;
-//import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.Mod;
 
@@ -49,7 +47,7 @@ public class PackedWool {
     public static void initialize(FMLInitializationEvent event) {
 		if (!ConfigHandler.isDisableNewBedsRecipes  ||
 			ConfigHandler.isReplaceBedsWithLegacyBed)
-        	RegistryHandler.removeRecipes();
+        	RecipeHandler.removeRecipes();
     }
 
     //public static void msgDebug(String msg) {

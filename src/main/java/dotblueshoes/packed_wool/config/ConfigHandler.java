@@ -1,29 +1,23 @@
 package dotblueshoes.packed_wool.config;
 
-import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
-import net.minecraftforge.common.MinecraftForge;
 
 import java.io.File;
 
-import dotblueshoes.packed_wool.*;
-
 /* Config Things
  *  Remember to remove config file "packed_wool" after changes to script. 
- *  This is due to the fact that script will think that previous values are ment to be.
+ *  This is due to the fact that script will think that previous values are meant to be.
  *  
  *  I have no idea why does it sort alphabetically.
 
  * 	Property	setRequiresMcRestart(boolean requiresMcRestart)
- *  Sets whether or not this Property requires Minecraft to be restarted when changed.
+ *  Sets whether this Property requires Minecraft to be restarted when changed.
  *  
  * Config files are being created with first run 
  *  Therefore it is important to define comments here.
- *  See if it can read an errortype.
- *  If so see what can i do with it.
+ *  See if it can read an error type.
+ *  If so see what can I do with it.
 */
 
 public class ConfigHandler {

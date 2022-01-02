@@ -13,7 +13,7 @@
 
 1. [Jitpack publishing](https://jitpack.io/) 
 **I am done with it. pls help if u can. Still it's a minor feature**
-4. Think about what's here and what's in 1.13+ versions.
+//4. Think about what's here and what's in 1.13+ versions.
 7. Giant Sheep
 
 // Scaling entities.
@@ -27,14 +27,15 @@
 //  to create a mob of a sheep model that will be 1.5 size of original.
 
 8. Make it so packedWool can be only collected with shears otherwise the player gets 3 wool.
-9. PackedWool slab variants.
-10. PackedWool decorative variants (terracotta style).
-11. Make normal wool act as spider web (the player will fall into the block)
-12. It also spawns spring-web like particles upon moving through.
-13. Take care of advancements.
-14. Mod integration with davinci .
-15. Singular wool / packed wool and all their variants that can be colored in all colors.
-
+9. PackedWool decorative variants (terracotta style).
+10. Make normal wool act as spider web (the player will fall into the block)
+11. It also spawns spring-web like particles upon moving through.
+12. Take care of advancements.
+13. Mod integration with "davinci".
+14. Singular wool / packed wool and all their variants that can be colored in all colors.
+15. Fix advancements upon world loading.
+     https://forums.minecraftforge.net/topic/60078-add-and-remove-advancements/
+16. Slab recipes. Make Serious Recipes give 2 instead of 3.
 ### Links that I am looking into
 
 [OLD_API](https://skmedix.github.io/ForgeJavaDocs/)

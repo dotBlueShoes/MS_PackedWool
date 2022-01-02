@@ -7,6 +7,7 @@ import net.minecraftforge.common.crafting.JsonContext;
 
 import java.util.function.BooleanSupplier;
 
+@SuppressWarnings("unused")
 public class PackedWoolRecipeFactory implements IConditionFactory {
 
 	// This is how we tell that there's a condition in json file.

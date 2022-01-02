@@ -1,0 +1,8 @@
+{
+  "parent": "block/half_slab",
+  "textures": {
+    "bottom": "packed_wool:blocks/packed_wool_green",
+    "top": "packed_wool:blocks/packed_wool_green",
+    "side": "packed_wool:blocks/packed_wool_green"
+  }
+}

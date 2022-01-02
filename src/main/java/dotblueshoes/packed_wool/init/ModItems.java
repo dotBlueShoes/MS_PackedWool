@@ -1,69 +1,70 @@
 package dotblueshoes.packed_wool.init;
 
-import dotblueshoes.packed_wool.blocks.slabs.PackedWoolDoubleSlabBlock;
-import dotblueshoes.packed_wool.blocks.slabs.PackedWoolHalfSlabBlock;
-import dotblueshoes.packed_wool.blocks.slabs.PackedWoolSlabBlock;
-import net.minecraft.block.BlockDoubleStoneSlabNew;
-import net.minecraft.block.SoundType;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemShears;
 import net.minecraft.item.Item;
-
-import net.minecraft.block.material.Material;
-import net.minecraft.block.Block;
-
-import dotblueshoes.packed_wool.config.*;
-import dotblueshoes.packed_wool.blocks.*;
 import dotblueshoes.packed_wool.items.*;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSlab;
 
 public class ModItems {
 
 	// Shears Overriding.
-	public static Item ITEMS_WITH_MODELS[] = {};
-
-    // List of all Packed Wool blocks i am adding 
-    //  If i would add non packedWool block then 
-	//  i would create a special class for it.
-    public static PackedWoolBlock PACKED_WOOL_BLOCKS[] = {
-        new PackedWoolBlock("packed_wool_white", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_orange", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_magenta", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_light_blue", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_yellow", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_lime", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_pink", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_gray", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_light_gray", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_cyan", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_purple", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_blue", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_brown", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_green", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_red", Material.CLOTH),
-        new PackedWoolBlock("packed_wool_black", Material.CLOTH),
-    };
-
-	public static PackedWoolSlabBlock PACKED_WOOL_HALF_SLAB_BLOCKS[] = {
-		new PackedWoolSlabBlock("packed_wool_black_slab", Material.CLOTH)
-	};
-
-	public static PackedWoolDoubleSlabBlock PACKED_WOOL_DOUBLE_SLAB_BLOCKS[] = {
-		new PackedWoolDoubleSlabBlock("packed_wool_black_slab", Material.CLOTH)
-	};
-
-	public static ItemSlab PACKED_WOOL_ITEMBLOCKS[] = {
-		new ItemSlab(PACKED_WOOL_HALF_SLAB_BLOCKS[0], PACKED_WOOL_HALF_SLAB_BLOCKS[0], PACKED_WOOL_DOUBLE_SLAB_BLOCKS[0])
-		//new ItemSlab(PACKED_WOOL_BLOCKS[15], PACKED_WOOL_HALF_SLAB_BLOCKS[0], PACKED_WOOL_DOUBLE_SLAB_BLOCKS[0]).setRegistryName("packed_wool_slab_black")
-	};
-
-	// registerBlock(181, "double_stone_slab2", (new BlockDoubleStoneSlabNew()).setHardness(2.0F).setResistance(10.0F).setSoundType(SoundType.STONE).setUnlocalizedName("stoneSlab2"));
+	public static Item[] ITEMS_WITH_MODELS = {};
 
 	public static void overrideShears() {
 		ITEMS_WITH_MODELS = new Item[] {
 			new Shears("shears", Shears.VANILLA_SHEARS_REGISTRY_NAME, 10.0f)
 		};
 	}
+
+	public static ItemBlock[] PACKED_WOOL_ITEM_BLOCKS = {
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[0]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[0].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[1]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[1].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[2]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[2].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[3]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[3].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[4]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[4].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[5]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[5].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[6]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[6].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[7]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[7].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[8]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[8].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[9]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[9].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[10]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[10].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[11]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[11].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[12]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[12].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[13]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[13].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[14]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[14].name),
+		(ItemBlock) new ItemBlock(ModBlocks.PACKED_WOOL_BLOCKS[15]).setRegistryName(ModBlocks.PACKED_WOOL_BLOCKS[15].name),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[0], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[0], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[0])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[0].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[1], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[1], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[1])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[1].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[2], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[2], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[2])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[2].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[3], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[3], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[3])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[3].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[4], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[4], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[4])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[4].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[5], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[5], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[5])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[5].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[6], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[6], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[6])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[6].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[7], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[7], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[7])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[7].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[8], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[8], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[8])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[8].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[9], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[9], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[9])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[9].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[10], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[10], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[10])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[10].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[11], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[11], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[11])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[11].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[12], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[12], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[12])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[12].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[13], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[13], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[13])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[13].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[14], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[14], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[14])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[14].getRegistryName()),
+		(ItemBlock) new ItemSlab(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[15], ModBlocks.PACKED_WOOL_SLAB_BLOCKS[15], ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS[15])
+			.setRegistryName(ModBlocks.PACKED_WOOL_SLAB_BLOCKS[15].getRegistryName()),
+	};
 
 }

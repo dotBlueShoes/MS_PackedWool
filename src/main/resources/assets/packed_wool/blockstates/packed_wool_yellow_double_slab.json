@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "variant=default": { "model": "packed_wool:packed_wool_yellow" }
+  }
+}
