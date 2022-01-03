@@ -1,7 +1,6 @@
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' };
-        jcenter();
         mavenCentral();
     }
     dependencies {
@@ -20,6 +19,36 @@ apply plugin: 'eclipse';
 //     properties.load(new FileInputStream(ext.configFile));
 //     project.ext.config = new ConfigSlurper().parse(properties);
 // }
+
+// Tasks
+task incrementBuildNumber; // Declaration of the Increasing Build Number task.
+task clearBuildNumber; // Sets build number to 0.
+
+task clearBuildNumber.doLast {
+    def versionBuildFile = file('gradleBuildNumber.properties');
+    if (versionBuildFile.canRead()) {
+        Properties versionProperties = new Properties();
+        versionProperties.load(new FileInputStream(versionBuildFile));
+        versionProperties['buildNumber'] = "0";
+        versionProperties.store(versionBuildFile.newWriter(), null);
+        println("BuildNumber has been set to 0");
+    } else {
+        println("Could not find 'gradleBuildNumber.properties' file! Ignoring setting to zero.");
+    }
+}
+
+incrementBuildNumber.doFirst {
+    def versionBuildFile = file('gradleBuildNumber.properties');
+    if (versionBuildFile.canRead()) {
+        Properties versionProperties = new Properties();
+        versionProperties.load(new FileInputStream(versionBuildFile));
+        int newNumber = versionProperties['buildNumber'].toInteger() + 1;
+        versionProperties['buildNumber'] = newNumber.toString();
+        versionProperties.store(versionBuildFile.newWriter(), null);
+        println("BuildNumber has incremented to: " + newNumber);
+    } else
+        println("Could not find 'gradleBuildNumber.properties' file! Ignoring increment.");
+}
 
 // Setting up the variables needed to build.
 version = minecraftVersion + "-" + GetVersion();
@@ -100,7 +129,7 @@ jar { // Manifest File. It's optional. But still it shows in the .jar file so le
 String GetVersion() {
     try {
         return GetGitVersion();
-    } catch (Exception exception) {
+    } catch (Exception ignored) {
         // Apperanlty this gets 3 exceptions therefore it's evaluated 3 times.
         println("Exception: Setting the version via Git failed!");
         return "err_version_" + GetBuildNumber();
@@ -133,36 +162,6 @@ String GetBuildNumber() {
         return versionProperties['buildNumber'].toString();
     } 
 	return "error_no_buildFile";
-}
-
-// Tasks 
-task incrementBuildNumber; // Declaration of the Increasing Build Number task.
-task clearBuildNumber; // Sets build number to 0.
-
-task clearBuildNumber.doLast {
-    def versionBuildFile = file('gradleBuildNumber.properties');
-    if (versionBuildFile.canRead()) {
-        Properties versionProperties = new Properties();
-        versionProperties.load(new FileInputStream(versionBuildFile));
-        versionProperties['buildNumber'] = "0";
-        versionProperties.store(versionBuildFile.newWriter(), null);
-        println("BuildNumber has been set to 0");
-    } else {
-        println("Could not find 'gradleBuildNumber.properties' file! Ignoring setting to zero.");
-	}
-}
-
-incrementBuildNumber.doFirst {
-    def versionBuildFile = file('gradleBuildNumber.properties');
-    if (versionBuildFile.canRead()) {
-        Properties versionProperties = new Properties();
-        versionProperties.load(new FileInputStream(versionBuildFile));
-        int newNumber = versionProperties['buildNumber'].toInteger() + 1;
-        versionProperties['buildNumber'] = newNumber.toString();
-        versionProperties.store(versionBuildFile.newWriter(), null);
-        println("BuildNumber has incremented to: " + newNumber);
-    } else 
-        println("Could not find 'gradleBuildNumber.properties' file! Ignoring increment.");
 }
 
 // This mean that it's gonna only increment on the successful builds.

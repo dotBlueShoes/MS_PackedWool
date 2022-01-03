@@ -9,6 +9,8 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
@@ -115,6 +117,12 @@ public abstract class PackedWoolSlabBlock extends BlockSlab implements IPackedWo
 		this.setResistance(RESISTANCE);
 		this.setSoundType(SOUND_TYPE);
 		this.setHardness(HARDNESS);
+	}
+
+	public static ItemBlock getItemBlock(Half slabBlock, Double doubleBlock) {
+		ItemBlock temp = new ItemSlab(slabBlock, slabBlock, doubleBlock);
+		temp.setRegistryName(slabBlock.getRegistryName());
+		return temp;
 	}
 
 	@Override

@@ -5,7 +5,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -50,24 +49,24 @@ public class RegistryHandler {
 		//for (int i = 0; i < ModItems.PACKED_WOOL_HALF_SLAB_BLOCKS.length; i++)
 		//	event.getRegistry().register((Block)ModItems.PACKED_WOOL_HALF_SLAB_BLOCKS[i]);
 
-		// Getting blocks into OreDictionary.
-		//  I honestly don't know if I should also have color and wool tags separately.
-		OreDictionary.registerOre("packed_wool_white", 		ModBlocks.PACKED_WOOL_BLOCKS[0]);
-		OreDictionary.registerOre("packed_wool_orange", 	    ModBlocks.PACKED_WOOL_BLOCKS[1]);
-		OreDictionary.registerOre("packed_wool_magenta", 	    ModBlocks.PACKED_WOOL_BLOCKS[2]);
-		OreDictionary.registerOre("packed_wool_light_blue",   ModBlocks.PACKED_WOOL_BLOCKS[3]);
-		OreDictionary.registerOre("packed_wool_yellow", 	    ModBlocks.PACKED_WOOL_BLOCKS[4]);
-		OreDictionary.registerOre("packed_wool_lime", 		ModBlocks.PACKED_WOOL_BLOCKS[5]);
-		OreDictionary.registerOre("packed_wool_pink", 		ModBlocks.PACKED_WOOL_BLOCKS[6]);
-		OreDictionary.registerOre("packed_wool_gray", 		ModBlocks.PACKED_WOOL_BLOCKS[7]);
-		OreDictionary.registerOre("packed_wool_light_gray",   ModBlocks.PACKED_WOOL_BLOCKS[8]);
-		OreDictionary.registerOre("packed_wool_cyan", 		ModBlocks.PACKED_WOOL_BLOCKS[9]);
-		OreDictionary.registerOre("packed_wool_purple", 	    ModBlocks.PACKED_WOOL_BLOCKS[10]);
-		OreDictionary.registerOre("packed_wool_blue", 		ModBlocks.PACKED_WOOL_BLOCKS[11]);
-		OreDictionary.registerOre("packed_wool_brown", 		ModBlocks.PACKED_WOOL_BLOCKS[12]);
-		OreDictionary.registerOre("packed_wool_green", 		ModBlocks.PACKED_WOOL_BLOCKS[13]);
-		OreDictionary.registerOre("packed_wool_red", 		    ModBlocks.PACKED_WOOL_BLOCKS[14]);
-		OreDictionary.registerOre("packed_wool_black", 		ModBlocks.PACKED_WOOL_BLOCKS[15]);
+		DictionaryHandler.RegisterDictionaryKeys();
+
+//		OreDictionary.registerOre("packed_wool_white", 		ModBlocks.PACKED_WOOL_BLOCKS[0]);
+//		OreDictionary.registerOre("packed_wool_orange", 	    ModBlocks.PACKED_WOOL_BLOCKS[1]);
+//		OreDictionary.registerOre("packed_wool_magenta", 	    ModBlocks.PACKED_WOOL_BLOCKS[2]);
+//		OreDictionary.registerOre("packed_wool_light_blue",   ModBlocks.PACKED_WOOL_BLOCKS[3]);
+//		OreDictionary.registerOre("packed_wool_yellow", 	    ModBlocks.PACKED_WOOL_BLOCKS[4]);
+//		OreDictionary.registerOre("packed_wool_lime", 		ModBlocks.PACKED_WOOL_BLOCKS[5]);
+//		OreDictionary.registerOre("packed_wool_pink", 		ModBlocks.PACKED_WOOL_BLOCKS[6]);
+//		OreDictionary.registerOre("packed_wool_gray", 		ModBlocks.PACKED_WOOL_BLOCKS[7]);
+//		OreDictionary.registerOre("packed_wool_light_gray",   ModBlocks.PACKED_WOOL_BLOCKS[8]);
+//		OreDictionary.registerOre("packed_wool_cyan", 		ModBlocks.PACKED_WOOL_BLOCKS[9]);
+//		OreDictionary.registerOre("packed_wool_purple", 	    ModBlocks.PACKED_WOOL_BLOCKS[10]);
+//		OreDictionary.registerOre("packed_wool_blue", 		ModBlocks.PACKED_WOOL_BLOCKS[11]);
+//		OreDictionary.registerOre("packed_wool_brown", 		ModBlocks.PACKED_WOOL_BLOCKS[12]);
+//		OreDictionary.registerOre("packed_wool_green", 		ModBlocks.PACKED_WOOL_BLOCKS[13]);
+//		OreDictionary.registerOre("packed_wool_red", 		    ModBlocks.PACKED_WOOL_BLOCKS[14]);
+//		OreDictionary.registerOre("packed_wool_black", 		ModBlocks.PACKED_WOOL_BLOCKS[15]);
 	}
 
 	@SubscribeEvent
@@ -78,8 +77,8 @@ public class RegistryHandler {
 			event.getRegistry().register(block);
 		for (Block block : ModBlocks.PACKED_WOOL_DOUBLE_SLAB_BLOCKS)
 			event.getRegistry().register(block);
-
-		event.getRegistry().register(ModBlocks.packedWoolStairsBlockBlack);
+		for (Block block : ModBlocks.PACKED_WOOL_STAIRS_BLOCKS)
+			event.getRegistry().register(block);
 
 		//event.getRegistry().register(ModBlocks.packedWoolSlabBlockDouble);
 		//event.getRegistry().register(ModBlocks.packedWoolSlabBlockHalf);
@@ -101,8 +100,9 @@ public class RegistryHandler {
 			PackedWool.proxy.registerItemRenderer(Item.getItemFromBlock(block), 0, "inventory");
 		for (Block block : ModBlocks.PACKED_WOOL_SLAB_BLOCKS)
 			PackedWool.proxy.registerItemRenderer(Item.getItemFromBlock(block), 0, "inventory");
+		for (Block block : ModBlocks.PACKED_WOOL_STAIRS_BLOCKS)
+			PackedWool.proxy.registerItemRenderer(Item.getItemFromBlock(block), 0, "inventory");
 
-		PackedWool.proxy.registerItemRenderer(Item.getItemFromBlock(ModBlocks.packedWoolStairsBlockBlack), 0, "inventory");
 		//for (int i = 0; i < ModBlocks.PACKED_WOOL_BLOCKS.length; i++)
 		//	ModBlocks.PACKED_WOOL_BLOCKS[i].registerModel();
 		//PackedWool.proxy.registerItemRenderer(Item.getItemFromBlock(ModBlocks.packedWoolSlabBlockHalf), 0, "inventory");

@@ -2,6 +2,7 @@ package dotblueshoes.packed_wool.blocks;
 
 import dotblueshoes.packed_wool.blocks.utility.IPackedWoolBlock;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.util.EnumFacing;
@@ -31,11 +32,11 @@ public class PackedWoolBlock extends Block implements IPackedWoolBlock {
 		this.setHardness(HARDNESS);
 	}
 
-	//public ItemBlock getItemBlock() {
-	//	ItemBlock temp = new ItemBlock(this);
-	//	temp.setRegistryName(name);
-	//	return temp;
-	//}
+	public ItemBlock getItemBlock() {
+		ItemBlock temp = new ItemBlock(this);
+		temp.setRegistryName(this.getRegistryName());
+		return temp;
+	}
 
 	@Override
 	@Nonnull

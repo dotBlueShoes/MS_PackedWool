@@ -68,6 +68,23 @@ public class ModBlocks {
 		new PackedWoolSlabBlock.Double("packed_wool_black_double_slab", Material.CLOTH, PACKED_WOOL_SLAB_BLOCKS[15]),
 	};
 
-	public static PackedWoolStairsBlock packedWoolStairsBlockBlack = new PackedWoolStairsBlock("packed_wool_black_stairs", PACKED_WOOL_BLOCKS[0].getDefaultState());
+	public static PackedWoolStairsBlock[] PACKED_WOOL_STAIRS_BLOCKS = {
+		new PackedWoolStairsBlock("packed_wool_white_stairs", 		PACKED_WOOL_BLOCKS[0].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_orange_stairs", 		PACKED_WOOL_BLOCKS[1].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_magenta_stairs", 		PACKED_WOOL_BLOCKS[2].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_light_blue_stairs", 	PACKED_WOOL_BLOCKS[3].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_yellow_stairs", 		PACKED_WOOL_BLOCKS[4].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_lime_stairs", 			PACKED_WOOL_BLOCKS[5].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_pink_stairs", 			PACKED_WOOL_BLOCKS[6].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_gray_stairs", 			PACKED_WOOL_BLOCKS[7].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_light_gray_stairs", 	PACKED_WOOL_BLOCKS[8].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_cyan_stairs", 			PACKED_WOOL_BLOCKS[9].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_purple_stairs", 		PACKED_WOOL_BLOCKS[10].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_blue_stairs", 			PACKED_WOOL_BLOCKS[11].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_brown_stairs", 		PACKED_WOOL_BLOCKS[12].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_green_stairs", 		PACKED_WOOL_BLOCKS[13].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_red_stairs", 			PACKED_WOOL_BLOCKS[14].getDefaultState()),
+		new PackedWoolStairsBlock("packed_wool_black_stairs", 		PACKED_WOOL_BLOCKS[15].getDefaultState()),
+	};
 
 }

@@ -4,6 +4,7 @@ import dotblueshoes.packed_wool.blocks.utility.IPackedWoolBlock;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -29,6 +30,12 @@ public class PackedWoolStairsBlock extends BlockStairs implements IPackedWoolBlo
 		this.setResistance(RESISTANCE);
 		this.setSoundType(SOUND_TYPE);
 		this.setHardness(HARDNESS);
+	}
+
+	public ItemBlock getItemBlock() {
+		ItemBlock temp = new ItemBlock(this);
+		temp.setRegistryName(this.getRegistryName());
+		return temp;
 	}
 
 	@Nonnull

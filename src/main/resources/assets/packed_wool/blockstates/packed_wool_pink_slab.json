@@ -1,6 +1,6 @@
 {
   "variants": {
-    "half=bottom,variant=default": { "model": "packed_wool:half_slab_packed_wool_pink" },
-    "half=top,variant=default": { "model": "packed_wool:upper_slab_packed_wool_pink" }
+    "half=bottom,variant=default": { "model": "packed_wool:packed_wool_pink_half_slab" },
+    "half=top,variant=default": { "model": "packed_wool:packed_wool_pink_upper_slab" }
   }
 }
