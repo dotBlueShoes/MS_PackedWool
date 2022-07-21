@@ -42,9 +42,7 @@
 ### Links that I am looking into
 
 [OLD_API](https://skmedix.github.io/ForgeJavaDocs/)
-[API](https://forge.yue.moe)
 [Config_something](https://mcforge.readthedocs.io/en/1.12.x/config/annotations/)
-[deobf](https://github.com/neworldmc/mc-deobf)
 
 *https://github.com/bernie-g/geckolib/blob/1.12/build.gradle*
 *https://github.com/bernie-g/geckolib/blob/1.12/gradle.properties*
