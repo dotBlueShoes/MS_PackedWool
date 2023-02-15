@@ -108,7 +108,7 @@ public abstract class PackedWoolSlabBlock extends BlockSlab implements IPackedWo
 
 		IBlockState blockState = this.blockState.getBaseState().withProperty(VARIANT, Variant.DEFAULT);
 
-		if(!this.isDouble()) {
+		if (!this.isDouble()) {
 			blockState.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM);
 		}
 
@@ -121,6 +121,7 @@ public abstract class PackedWoolSlabBlock extends BlockSlab implements IPackedWo
 
 	public static ItemBlock getItemBlock(Half slabBlock, Double doubleBlock) {
 		ItemBlock temp = new ItemSlab(slabBlock, slabBlock, doubleBlock);
+		//noinspection ConstantConditions
 		temp.setRegistryName(slabBlock.getRegistryName());
 		return temp;
 	}
@@ -143,17 +144,19 @@ public abstract class PackedWoolSlabBlock extends BlockSlab implements IPackedWo
 		return Variant.DEFAULT;
 	}
 
-//	@Override
-//	@Nonnull
-//	public final IBlockState getStateFromMeta(final int meta) {
-//		IBlockState blockState = this.blockState.getBaseState().withProperty(VARIANT, Variant.DEFAULT);
-//
-//		if(!this.isDouble()) {
-//			blockState = blockState.withProperty(HALF, ((meta&8)!=0)?EnumBlockHalf.TOP:EnumBlockHalf.BOTTOM);
-//		}
-//
-//		return blockState;
-//	}
+	// This is very needed !
+	// Without slabs will change their state from bottom to top when world is being loaded.
+	@Override
+	@Nonnull
+	public final IBlockState getStateFromMeta(final int meta) {
+		IBlockState blockState = this.blockState.getBaseState().withProperty(VARIANT, Variant.DEFAULT);
+
+		if (!this.isDouble()) {
+			blockState = blockState.withProperty(HALF, ((meta&8)!=0)?EnumBlockHalf.TOP:EnumBlockHalf.BOTTOM);
+		}
+
+		return blockState;
+	}
 
 	@Override
 	public final int getMetaFromState(@Nonnull final IBlockState state) {
