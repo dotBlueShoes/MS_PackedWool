@@ -56,7 +56,7 @@ group = "io.github.dotBlueShoes";
 archivesBaseName = "packed_wool";
 
 
-// Something i belive needed for Eclipse only.
+// Something i believe needed for Eclipse only.
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8;
 compileJava { sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8; }
 

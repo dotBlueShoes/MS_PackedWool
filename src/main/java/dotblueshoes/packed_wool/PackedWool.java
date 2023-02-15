@@ -24,8 +24,8 @@ public class PackedWool {
 
 	private static Logger logger;
 
-	//@Instance("packed_wool")
-	//public static PackedWool instance;
+	@Mod.Instance("packed_wool")
+	public static PackedWool instance;
 
 	@SidedProxy (
     	clientSide = "dotblueshoes.packed_wool.proxy.ClientProxy", 
