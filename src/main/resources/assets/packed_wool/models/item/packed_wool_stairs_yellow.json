@@ -1,5 +1,5 @@
 {
-  "parent": "packed_wool:block/packed_wool_yellow_stairs",
+  "parent": "packed_wool:block/packed_wool_stairs_yellow",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170],
